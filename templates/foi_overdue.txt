@@ -1,0 +1,29 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+Freedom of Information Officer
+$organisation_name
+$organisation_address
+
+Dear Sir or Madam,
+
+Subject: Overdue FOI Request — Formal Reminder
+
+On $sent_date, I submitted a request under the Freedom of Information Act 2000.
+A copy of that request is attached.
+
+The statutory period of 20 working days expired on $deadline_date. I have not
+received a substantive response.
+
+I require you to respond within 5 working days of this letter.
+
+If I do not receive a response by $chaser_deadline, I intend to file a complaint
+with the Information Commissioner's Office (ICO), which has the power to issue
+an Enforcement Notice requiring compliance.
+
+Yours faithfully,
+
+$your_name

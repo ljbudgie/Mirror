@@ -1,0 +1,38 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+$landlord_name
+$landlord_address
+
+Dear $landlord_name,
+
+Subject: Formal Complaint — $property_address
+
+I am writing to formally raise a complaint regarding the following issue at the
+above property, which I have been renting from you since $tenancy_start_date.
+
+The problem:
+
+$problem_description
+
+I first raised this informally on $informal_complaint_date. It has not been
+resolved.
+
+As your tenant, I am entitled under Section 11 of the Landlord and Tenant Act
+1985 to a property that is kept in proper repair. The issues described above
+are your legal responsibility to remedy.
+
+I require you to arrange an inspection and carry out the necessary repairs
+within $deadline_days days of this letter ($deadline_date).
+
+If this is not resolved by that date, I will have no choice but to refer the
+matter to the local council's housing department and/or seek independent advice.
+
+Please respond to me in writing at the address above.
+
+Yours faithfully,
+
+$your_name

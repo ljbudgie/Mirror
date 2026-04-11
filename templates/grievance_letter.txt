@@ -1,0 +1,43 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+HR Department / [Manager's Manager]
+$employer_name
+$employer_address
+
+Dear Sir or Madam,
+
+Subject: Formal Grievance
+
+I am writing to raise a formal grievance in accordance with my employer's
+grievance procedure and the ACAS Code of Practice on Disciplinary and
+Grievance Procedures.
+
+The nature of my grievance:
+
+$grievance_description
+
+Dates and details of relevant incidents:
+
+$incident_details
+
+How this has affected me:
+
+$impact_statement
+
+What I am asking for:
+
+$desired_outcome
+
+I would be grateful if you could acknowledge this grievance and arrange a
+meeting to discuss it within 5 working days.
+
+I confirm that I am prepared to attend a grievance hearing and to be accompanied
+by a colleague or trade union representative if I choose.
+
+Yours faithfully,
+
+$your_name

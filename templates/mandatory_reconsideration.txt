@@ -1,0 +1,36 @@
+$your_name
+$your_address
+$your_email
+National Insurance number: $ni_number
+
+$today_date
+
+Mandatory Reconsideration Team
+Department for Work and Pensions
+$dwp_address
+
+Dear Sir or Madam,
+
+Subject: Request for Mandatory Reconsideration — $benefit_name
+Decision dated: $decision_date
+Reference: $dwp_reference
+
+I am writing to request a Mandatory Reconsideration of the decision dated
+$decision_date regarding my entitlement to $benefit_name.
+
+I disagree with this decision for the following reasons:
+
+$reasons_for_disagreement
+
+In support of this request, I enclose / can provide the following evidence:
+
+$supporting_evidence
+
+I believe the correct decision should be: $desired_decision
+
+I am making this request within the one-month time limit. Please confirm
+receipt and let me know if you need any further information.
+
+Yours faithfully,
+
+$your_name

@@ -1,0 +1,39 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+Legal / Complaints Team
+$platform_name
+$platform_address_or_email
+
+Dear Sir or Madam,
+
+Subject: Formal Complaint — Account Decision Dated $decision_date
+
+I am writing to make a formal complaint regarding a decision taken by
+$platform_name on $decision_date affecting my account.
+
+What happened:
+
+$what_happened
+
+I believe this decision:
+- Was made without adequate notice or explanation
+- May have been made by or partly by an automated system (UK GDPR Article 22)
+- Has caused me the following harm: $harm_caused
+
+I am requesting:
+1. A full written explanation of the reasons for this decision
+2. Confirmation of whether automated decision-making was involved, and if so,
+   the logic and criteria applied
+3. A review of the decision by a human being with authority to overturn it
+4. Restoration of my account / removal / correction of the content in question
+
+Please respond within 14 calendar days. If I do not receive a satisfactory
+response, I will escalate this matter to the Information Commissioner's Office.
+
+Yours faithfully,
+
+$your_name

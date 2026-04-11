@@ -1,0 +1,36 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+The Complaints Team
+$company_name
+$company_address_or_email
+
+Dear Sir or Madam,
+
+Subject: Formal Complaint under the Consumer Rights Act 2015
+
+I am writing to make a formal complaint regarding a product / service purchased
+from $company_name on $purchase_date.
+
+Order / reference number: $order_reference
+
+What went wrong:
+
+$what_went_wrong
+
+Under the Consumer Rights Act 2015, the goods / services I purchased were
+required to be of satisfactory quality, fit for purpose, and as described.
+They are not, because: $reason_not_satisfactory
+
+I am requesting: $desired_outcome
+
+Please respond within 14 calendar days of this letter. If I do not receive a
+satisfactory response within 8 weeks, I reserve the right to refer this matter
+to the relevant ombudsman or trading standards authority.
+
+Yours faithfully,
+
+$your_name

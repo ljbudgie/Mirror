@@ -1,0 +1,36 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+$manager_name (or Complaints Team)
+$organisation_name
+$organisation_address
+
+Dear $manager_name,
+
+Subject: Formal Dispute of Response Dated $response_date
+
+Thank you for your response dated $response_date regarding my $request_type.
+
+I am writing to dispute your response because:
+
+$reasons_for_dispute
+
+Specifically, I note that:
+
+$specific_concerns
+
+I require you to:
+
+$required_actions
+
+Please respond within 14 calendar days of this letter. If you are unable to
+meet this request, please explain why in writing.
+
+I am keeping full records of this correspondence.
+
+Yours faithfully,
+
+$your_name

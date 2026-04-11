@@ -1,0 +1,32 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+Freedom of Information Officer
+$organisation_name
+$organisation_address
+
+Dear Sir or Madam,
+
+Subject: Freedom of Information Request
+
+I am making a request under the Freedom of Information Act 2000.
+
+I would like to receive the following recorded information held by your organisation:
+
+$information_requested
+
+Please provide the information in an accessible format. If you are unable to
+provide all of the information, please explain which exemptions you are relying on
+and your reasons for doing so.
+
+I understand that you are required to respond within 20 working days.
+
+If my request is unclear or you require clarification, please contact me as
+soon as possible so that we can resolve this within the statutory period.
+
+Yours faithfully,
+
+$your_name
