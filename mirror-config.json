@@ -8,5 +8,11 @@
   },
   "export_format": "txt",
   "vault_path": null,
-  "templates_dir": null
+  "templates_dir": null,
+  "ai": {
+    "enabled": false,
+    "model": "mistral",
+    "base_url": "http://localhost:11434",
+    "timeout": 120
+  }
 }
