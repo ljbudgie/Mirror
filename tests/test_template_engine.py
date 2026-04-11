@@ -67,6 +67,12 @@ class TestListTemplates:
         for expected in ["sar_request", "generic_complaint", "foi_request"]:
             assert expected in templates, f"Expected template '{expected}' not found"
 
+    def test_returns_empty_list_when_directory_missing(self, monkeypatch):
+        import core.template_engine as te
+        monkeypatch.setattr(te, "_TEMPLATES_DIR", Path("/nonexistent/templates"))
+        result = te.list_templates()
+        assert result == []
+
 
 class TestRender:
     def test_render_sar_request(self):
