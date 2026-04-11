@@ -1,0 +1,43 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+Housing Department
+$council_name
+$council_address
+
+Dear Sir or Madam,
+
+Subject: Request for Intervention — Landlord Failure to Repair
+
+I am a tenant at $property_address and I am writing to request your
+intervention regarding my landlord's failure to carry out necessary repairs.
+
+Landlord details:
+  Name:    $landlord_name
+  Address: $landlord_address
+
+I first raised the following issue(s) with my landlord on $initial_complaint_date:
+
+$problem_description
+
+Despite giving my landlord a reasonable period to respond, they have failed to
+carry out the repairs or to respond to my complaint. My most recent written
+complaint was sent on $last_complaint_date.
+
+Under Section 11 of the Landlord and Tenant Act 1985, my landlord is legally
+responsible for keeping the structure and exterior of the property in repair,
+as well as installations for water, gas, electricity, and sanitation.
+
+I am requesting that the council:
+1. Inspect the property
+2. Take enforcement action if appropriate under the Housing Health and Safety
+   Rating System (HHSRS) or the Housing Act 2004
+
+I enclose copies of my correspondence with the landlord.
+
+Yours faithfully,
+
+$your_name

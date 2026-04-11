@@ -1,0 +1,46 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+Parliamentary and Health Service Ombudsman
+Millbank Tower
+Millbank
+London SW1P 4QP
+
+Dear Sir or Madam,
+
+Subject: Referral of NHS Complaint for Investigation
+
+I am writing to refer my complaint about $nhs_organisation to the Parliamentary
+and Health Service Ombudsman, as I have been unable to resolve it through the
+local NHS complaints process.
+
+Healthcare provider details:
+  Name:    $nhs_organisation
+  Address: $organisation_address
+
+Summary of my complaint:
+
+$complaint_summary
+
+Timeline:
+  Date of incident:        $incident_date
+  Date I complained:       $complaint_date
+  Date of final response:  $final_response_date
+
+Why I remain dissatisfied:
+
+$reasons_dissatisfied
+
+What I am seeking:
+
+$desired_outcome
+
+I confirm that I have completed the local NHS complaints process and received
+a final response. I enclose copies of all relevant correspondence.
+
+Yours faithfully,
+
+$your_name

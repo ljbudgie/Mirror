@@ -1,0 +1,38 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+$agency_name
+$agency_address
+
+Dear Sir or Madam,
+
+Subject: Request for Statutory Credit Report
+
+I am writing to request a copy of my statutory credit report under Section 7
+of the Consumer Credit Act 1974 and Article 15 of the UK GDPR.
+
+My details:
+  Full name:      $your_full_name
+  Date of birth:  $your_dob
+  Current address: $your_address
+  Previous address (if applicable): $previous_address
+
+I request a complete copy of all information held in my credit file, including:
+
+- All credit accounts and their current status
+- Any defaults, County Court Judgments (CCJs), or insolvency records
+- All search footprints (hard and soft searches)
+- Any fraud markers or CIFAS flags
+- Any linked addresses or financial associations
+
+If any of the information is inaccurate, I will be exercising my right to
+dispute it under Article 16 of the UK GDPR.
+
+Please provide the report to me at the address or email above.
+
+Yours faithfully,
+
+$your_name

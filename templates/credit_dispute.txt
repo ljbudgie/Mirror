@@ -1,0 +1,48 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+$creditor_or_agency_name
+$creditor_or_agency_address
+
+Dear Sir or Madam,
+
+Subject: Formal Dispute of Credit File Entry
+
+I am writing to formally dispute inaccurate information on my credit file
+under Article 16 of the UK GDPR (right to rectification) and Section 159 of
+the Consumer Credit Act 1974.
+
+My details:
+  Full name:      $your_full_name
+  Date of birth:  $your_dob
+
+The entry I am disputing:
+
+$disputed_entry
+
+This entry is inaccurate because:
+
+$reason_inaccurate
+
+Evidence I am enclosing to support my dispute:
+
+$evidence
+
+I require you to:
+1. Investigate this dispute within 28 days
+2. Correct or remove the inaccurate entry
+3. Notify me of the outcome in writing
+
+If you do not agree to correct this entry, I wish to add a Notice of
+Correction to my file explaining the dispute, as is my right under Section 159
+of the Consumer Credit Act 1974.
+
+If this matter is not resolved, I will escalate my complaint to the Financial
+Ombudsman Service and/or the Information Commissioner's Office.
+
+Yours faithfully,
+
+$your_name

@@ -1,0 +1,35 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+IMPORTANT: MANDATORY RECONSIDERATION DEADLINE APPROACHING
+
+This document is for your personal use. It is a reminder that your deadline
+to request a Mandatory Reconsideration is approaching.
+
+Decision details:
+  Benefit:        $benefit_name
+  Decision dated: $decision_date
+  DWP reference:  $dwp_reference
+  Deadline:       $deadline_date
+  Days remaining: $days_remaining
+
+WHAT YOU MUST DO NOW
+
+You must send your Mandatory Reconsideration request to the DWP before
+$deadline_date. After this date, you may lose the right to challenge the
+decision.
+
+Use the mandatory_reconsideration template to draft your letter.
+
+If you have already sent your MR request, you can disregard this reminder.
+
+IMPORTANT NOTES
+
+- The one-month time limit runs from the date on the decision letter,
+  not from the date you received it
+- If you have good reasons for being late, the DWP may still accept a
+  late request — but this is not guaranteed
+- Keep a copy of everything you send

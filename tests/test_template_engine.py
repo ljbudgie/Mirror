@@ -105,3 +105,32 @@ class TestRender:
     def test_render_missing_template_raises(self):
         with pytest.raises(FileNotFoundError):
             render("this_template_does_not_exist", {})
+
+    def test_render_all_templates_load(self):
+        """Every template listed by list_templates() must render without error."""
+        templates = list_templates()
+        for tmpl in templates:
+            result = render(tmpl, {"your_name": "Test User"}, include_burgess=False)
+            assert isinstance(result, str)
+            assert len(result) > 0, f"Template '{tmpl}' rendered empty"
+
+    def test_all_next_step_templates_exist(self):
+        """Every template_key referenced in next_step._STEP_MAP must exist on disk."""
+        from core.next_step import _STEP_MAP
+        templates = list_templates()
+        for (domain, stage), step in _STEP_MAP.items():
+            if step.template_key:
+                assert step.template_key in templates, (
+                    f"next_step ({domain}, {stage.value}) references "
+                    f"'{step.template_key}' but it does not exist"
+                )
+
+    def test_all_escalation_templates_exist(self):
+        """Every template in timeline._ESCALATION_MAP must exist on disk."""
+        from core.timeline import _ESCALATION_MAP
+        templates = list_templates()
+        for label, tmpl_key in _ESCALATION_MAP.items():
+            assert tmpl_key in templates, (
+                f"timeline escalation for '{label}' references "
+                f"'{tmpl_key}' but it does not exist"
+            )

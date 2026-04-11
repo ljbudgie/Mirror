@@ -1,0 +1,31 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+The Complaints Team
+$organisation_name
+$organisation_address
+
+Dear Sir or Madam,
+
+Subject: Overdue Complaint Response — Formal Reminder
+
+On $sent_date, I submitted a formal complaint to $organisation_name. A copy
+of that complaint is attached.
+
+I was entitled to an acknowledgement within $acknowledgement_days working days.
+The deadline for this was $deadline_date. I have not received any
+acknowledgement or substantive response.
+
+I require you to:
+1. Acknowledge my complaint immediately
+2. Provide a full written response within 14 calendar days of this letter
+
+If I do not receive a response by $chaser_deadline, I will escalate this
+matter to the relevant regulator or ombudsman without further notice.
+
+Yours faithfully,
+
+$your_name

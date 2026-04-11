@@ -1,0 +1,46 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+Financial Ombudsman Service
+Exchange Tower
+London E14 9SR
+
+Dear Sir or Madam,
+
+Subject: Complaint Referral — $firm_name
+
+I am writing to refer my complaint about $firm_name to the Financial Ombudsman
+Service, as I have been unable to resolve it directly with the firm.
+
+Firm details:
+  Name:    $firm_name
+  Address: $firm_address
+
+My complaint reference with the firm: $firm_reference
+
+Summary of my complaint:
+
+$complaint_summary
+
+Timeline:
+  Date I first complained:  $complaint_date
+  Date of final response:   $final_response_date
+
+I am dissatisfied with the firm's response because:
+
+$reasons_dissatisfied
+
+What I am seeking:
+
+$desired_outcome
+
+I confirm that I have given the firm at least 8 weeks to resolve this matter
+or have received a final response letter. I enclose copies of all relevant
+correspondence.
+
+Yours faithfully,
+
+$your_name
