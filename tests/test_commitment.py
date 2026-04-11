@@ -1,6 +1,5 @@
 """Tests for core/commitment.py — SHA-256 commitment generation and verification."""
 
-import json
 import pytest
 from pathlib import Path
 from core.commitment import (
