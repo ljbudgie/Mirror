@@ -16,6 +16,7 @@ MIT licence. Python ≥ 3.11.
 - **Drafts the communication** — 27 ready-to-send letter templates (SAR requests, FOI requests, grievance letters, NHS complaints, mandatory reconsiderations, tribunal appeals, ICO complaints, chargeback requests, and more), each with the [Burgess Principle](https://github.com/ljbudgie/burgess-principle) question included.
 - **Tracks deadlines** — statutory timelines for DSARs, FOIs, tribunal claims, and complaint acknowledgements.
 - **Hashes every outgoing message** — SHA-256 commitment hashing so you can prove a message came from you, without revealing personal data.
+- **Optional local AI** — connect a local AI backend (Ollama) for adaptive classification, context-aware rights mapping, and situationally tailored Burgess questions. Disabled by default. When enabled, all AI processing stays on your device.
 
 Everything runs on your device. No server, no accounts, no tracking, no cookies.
 
@@ -35,7 +36,8 @@ Open `web/index.html` in your browser. No server needed.
 ## Structure
 
 ```
-/core        Python modules — conversation, rights, next step, templates, commitment, timeline
+/core        Python modules — conversation, rights, next step, templates, commitment, timeline, AI adapter
+/prompts     System prompts for local AI integration (master-system.md)
 /templates   Ready-to-send letter templates (27 templates)
 /web         Local-first chat interface (HTML + CSS, no dependencies)
 /docs        User guide, security policy, contributing guide
@@ -61,3 +63,50 @@ Mirror is local-first by design.
 - No cookies
 - The web interface makes no network requests
 - Your commitment vault is encrypted on your device
+- AI features (when enabled) use a local backend — no cloud APIs
+
+---
+
+## Local AI (optional)
+
+Mirror can optionally connect to a local AI backend for adaptive classification, context-aware rights mapping, and situationally tailored Burgess questions. AI is **disabled by default** — the deterministic rule-based engine works without it.
+
+### Setup
+
+1. Install [Ollama](https://ollama.com/) and pull a model:
+   ```bash
+   ollama pull mistral
+   ```
+
+2. Enable AI in `mirror-config.json`:
+   ```json
+   {
+     "ai": {
+       "enabled": true,
+       "model": "mistral",
+       "base_url": "http://localhost:11434",
+       "timeout": 120
+     }
+   }
+   ```
+
+3. Install the optional AI dependency:
+   ```bash
+   pip install -e ".[ai]"
+   ```
+
+### Usage
+
+```python
+from core.ai_adapter import adaptive_classify, adaptive_burgess_question, is_backend_available
+
+# Check if the backend is running
+if is_backend_available():
+    # AI-powered classification
+    result = adaptive_classify("My PIP assessment was refused")
+
+    # Situational Burgess question
+    question = adaptive_burgess_question("My PIP was refused", "benefits")
+```
+
+When AI is unavailable or disabled, these functions return `None`, and Mirror falls back to its deterministic engine. Nothing breaks.
