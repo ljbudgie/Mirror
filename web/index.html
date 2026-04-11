@@ -51,7 +51,7 @@
     /**
      * Mirror — local-first chat interface.
      *
-     * All conversation state lives in memory (and optionally localStorage).
+     * All conversation state lives in memory.
      * Nothing is sent to any server. No analytics. No cookies.
      */
 
@@ -246,8 +246,10 @@
         if (/\bdraft\b/.test(lower) || /\btemplate\b/.test(lower) || /\bwrite\b/.test(lower)) {
           setTimeout(() => {
             addMessage(
-              `To draft the communication, please use Mirror's Python toolkit from the command line:<br>`
-              + `<code>python -m core.template_engine --domain ${escapeHtml(state.domain)}</code><br><br>`
+              `To draft the communication, use Mirror's Python toolkit from the command line:<br><br>`
+              + `<code>python -c "from core.template_engine import render, list_templates; print(list_templates())"</code><br><br>`
+              + `Then render a template with your details:<br><br>`
+              + `<code>python -c "from core.template_engine import render; print(render('sar_request', {'your_name': 'Your Name'}))"</code><br><br>`
               + `The draft will be generated locally on your device. Nothing is sent anywhere.`,
               'mirror'
             );

@@ -8,6 +8,10 @@ is ever sent to a server.
 
 ## Getting started
 
+### Requirements
+
+- Python 3.11 or later
+
 ### Install Python dependencies
 
 ```bash
