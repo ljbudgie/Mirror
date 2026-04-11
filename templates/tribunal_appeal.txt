@@ -1,0 +1,40 @@
+$your_name
+$your_address
+$your_email
+National Insurance number: $ni_number
+
+$today_date
+
+HM Courts & Tribunals Service
+Social Security and Child Support Tribunal
+HMCTS SSCS Appeals Centre
+$tribunal_address
+
+Dear Sir or Madam,
+
+Subject: Appeal Against Mandatory Reconsideration Decision
+Benefit: $benefit_name
+MR decision dated: $mr_decision_date
+DWP reference: $dwp_reference
+
+I am writing to appeal the Mandatory Reconsideration decision dated
+$mr_decision_date regarding my entitlement to $benefit_name.
+
+The Mandatory Reconsideration did not change the original decision, and I
+believe it remains wrong for the following reasons:
+
+$reasons_for_appeal
+
+In support of this appeal, I enclose or can provide the following evidence:
+
+$supporting_evidence
+
+I would like my appeal to be heard at an oral hearing so that I can explain
+my circumstances in person.
+
+I confirm that I am making this appeal within the one-month time limit from
+the date of the MR notice.
+
+Yours faithfully,
+
+$your_name

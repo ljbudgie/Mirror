@@ -13,7 +13,7 @@ MIT licence. Python ≥ 3.11.
 - **Classifies your situation** from a plain-English description into one of nine domains: enforcement, benefits, housing, platform, medical, credit, employment, immigration, and consumer.
 - **Maps your rights** — shows the specific legal rights that apply, with sources and actions.
 - **Gives you one next step** — not a list, just one clear thing to do now.
-- **Drafts the communication** — 12 ready-to-send letter templates (SAR requests, FOI requests, grievance letters, NHS complaints, mandatory reconsiderations, and more), each with the [Burgess Principle](https://github.com/ljbudgie/burgess-principle) question included.
+- **Drafts the communication** — 27 ready-to-send letter templates (SAR requests, FOI requests, grievance letters, NHS complaints, mandatory reconsiderations, tribunal appeals, ICO complaints, chargeback requests, and more), each with the [Burgess Principle](https://github.com/ljbudgie/burgess-principle) question included.
 - **Tracks deadlines** — statutory timelines for DSARs, FOIs, tribunal claims, and complaint acknowledgements.
 - **Hashes every outgoing message** — SHA-256 commitment hashing so you can prove a message came from you, without revealing personal data.
 
@@ -36,7 +36,7 @@ Open `web/index.html` in your browser. No server needed.
 
 ```
 /core        Python modules — conversation, rights, next step, templates, commitment, timeline
-/templates   Ready-to-send letter templates (12 templates)
+/templates   Ready-to-send letter templates (27 templates)
 /web         Local-first chat interface (HTML + CSS, no dependencies)
 /docs        User guide, security policy, contributing guide
 ```

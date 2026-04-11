@@ -1,0 +1,46 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+IMPORTANT: APPEAL DEADLINE CHECKLIST
+
+This document is for your personal use. It is not a letter to send. It helps
+you prepare your appeal against the immigration decision dated $decision_date.
+
+Decision details:
+  Date of refusal letter:  $decision_date
+  Type of application:     $application_type
+  Home Office reference:   $ho_reference
+
+STEP 1 — CHECK YOUR APPEAL DEADLINE
+
+Your appeal deadline may be as short as 14 days from the date of the refusal
+letter. Check the refusal letter carefully for the exact deadline.
+
+  Appeal deadline: $appeal_deadline
+
+STEP 2 — DETERMINE YOUR RIGHT OF APPEAL
+
+Not all immigration decisions carry a right of appeal. Check whether your
+refusal letter says you have a right of appeal to the First-tier Tribunal
+(Immigration and Asylum Chamber).
+
+If you do not have a right of appeal, you may still be able to apply for
+Administrative Review or Judicial Review. Seek legal advice immediately.
+
+STEP 3 — GATHER YOUR EVIDENCE
+
+Collect all documents that support your case:
+
+$evidence_list
+
+STEP 4 — SEEK LEGAL ADVICE
+
+Contact one of the following for free or low-cost immigration advice:
+- Citizens Advice (citizensadvice.org.uk)
+- Law centres in your area
+- Immigration solicitors offering legal aid
+
+Do not wait. Time limits in immigration cases are strict.

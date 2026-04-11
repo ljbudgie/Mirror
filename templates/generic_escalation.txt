@@ -1,0 +1,42 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+$regulator_or_ombudsman_name
+$regulator_address
+
+Dear Sir or Madam,
+
+Subject: Formal Escalation — $organisation_name
+
+I am writing to escalate a complaint about $organisation_name, which I have
+been unable to resolve directly.
+
+Organisation details:
+  Name:    $organisation_name
+  Address: $organisation_address
+
+Summary of the original complaint:
+
+$complaint_summary
+
+Steps I have already taken:
+
+$steps_taken
+
+The deadline for their response was $deadline_date. They have not responded /
+their response was not satisfactory because:
+
+$reason_for_escalation
+
+What I am seeking:
+
+$desired_outcome
+
+I enclose copies of all correspondence with the organisation.
+
+Yours faithfully,
+
+$your_name

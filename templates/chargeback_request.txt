@@ -1,0 +1,51 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+$bank_name
+$bank_address
+
+Dear Sir or Madam,
+
+Subject: Chargeback / Section 75 Claim
+
+I am writing to request a chargeback (or, if applicable, a claim under
+Section 75 of the Consumer Credit Act 1974) in respect of a transaction on my
+account.
+
+Account details:
+  Account holder: $your_name
+  Card ending:    $card_last_four
+  Sort code:      $sort_code
+  Account number: $account_number
+
+Transaction details:
+  Merchant:       $merchant_name
+  Date:           $transaction_date
+  Amount:         $transaction_amount
+  Reference:      $transaction_reference
+
+The reason for this claim:
+
+$reason_for_claim
+
+I have already attempted to resolve this with the merchant. I contacted them
+on $merchant_contact_date. Their response was: $merchant_response
+
+Under Section 75 of the Consumer Credit Act 1974, the credit card provider is
+jointly and severally liable for any breach of contract or misrepresentation by
+the supplier, where the cash price of the item or service is between £100 and
+£30,000.
+
+For debit card transactions, I am requesting a chargeback under the relevant
+card scheme rules.
+
+I enclose evidence of the transaction and my correspondence with the merchant.
+
+Please confirm receipt and let me know the outcome within 15 business days.
+
+Yours faithfully,
+
+$your_name

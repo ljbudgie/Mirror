@@ -1,0 +1,49 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+IMPORTANT: EMPLOYMENT TRIBUNAL DEADLINE APPROACHING
+
+This document is for your personal use. It is a reminder that your deadline
+to bring an Employment Tribunal claim is approaching.
+
+Claim details:
+  Issue:             $issue_description
+  Date of act:       $act_date
+  Tribunal deadline: $deadline_date
+  Days remaining:    $days_remaining
+
+WHAT YOU MUST DO NOW
+
+1. CONTACT ACAS IMMEDIATELY
+
+   Before you can bring a tribunal claim, you must notify ACAS and go
+   through Early Conciliation. This is a legal requirement.
+
+   ACAS helpline:    0300 123 1100
+   Online:           acas.org.uk/early-conciliation
+
+   Early Conciliation pauses the tribunal clock while ACAS tries to help
+   you reach an agreement.
+
+2. PREPARE YOUR CLAIM
+
+   If conciliation does not resolve the issue, ACAS will issue you a
+   certificate. You then have at least one calendar month from the date
+   of the certificate to submit your claim to the Employment Tribunal.
+
+3. SEEK LEGAL ADVICE
+
+   Free advice may be available from:
+   - Citizens Advice (citizensadvice.org.uk)
+   - ACAS (acas.org.uk)
+   - Law centres in your area
+
+IMPORTANT NOTES
+
+- The 3-month-minus-1-day limit is strict
+- Time runs from the date of the act you are complaining about
+- If you miss this deadline, you may lose the right to bring a claim
+- Keep a copy of everything

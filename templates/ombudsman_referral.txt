@@ -1,0 +1,43 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+$ombudsman_name
+$ombudsman_address
+
+Dear Sir or Madam,
+
+Subject: Complaint Referral — $company_name
+
+I am writing to refer my unresolved complaint about $company_name to you, as I
+have been unable to resolve it directly with the company.
+
+Company details:
+  Name:    $company_name
+  Address: $company_address
+
+Summary of my complaint:
+
+$complaint_summary
+
+Timeline:
+  Date of purchase / incident: $incident_date
+  Date I first complained:     $complaint_date
+  Date of final response:      $final_response_date
+
+Why the company's response is not acceptable:
+
+$reasons_dissatisfied
+
+What I am seeking:
+
+$desired_outcome
+
+I confirm that I have exhausted the company's internal complaints process. I
+enclose copies of all relevant correspondence.
+
+Yours faithfully,
+
+$your_name
