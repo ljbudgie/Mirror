@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mirror — see where you stand</title>
+  <meta name="description" content="Tell Mirror what happened. It maps your rights, generates the question, and gives you the next step." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <span class="logo" aria-label="Mirror">Mirror</span>
+    <span class="tagline">see where you stand</span>
+  </header>
+
+  <main id="main" role="main">
+    <div id="chat-container" aria-live="polite" aria-label="Conversation">
+      <!-- Messages appear here -->
+    </div>
+
+    <form id="input-form" autocomplete="off" aria-label="Your message">
+      <label for="user-input" class="sr-only">Your message</label>
+      <textarea
+        id="user-input"
+        name="message"
+        rows="3"
+        placeholder="Tell me what happened…"
+        aria-required="true"
+        aria-multiline="true"
+      ></textarea>
+      <button type="submit" id="send-btn" aria-label="Send">
+        Send
+      </button>
+    </form>
+
+    <p class="privacy-note" role="note">
+      Everything stays in your browser. Nothing is sent anywhere. No accounts. No tracking.
+    </p>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>
+      Built on the
+      <a href="https://github.com/ljbudgie/burgess-principle" target="_blank" rel="noopener noreferrer">Burgess Principle</a>
+      (UK00004343685). MIT licence. Local-first.
+    </p>
+  </footer>
+
+  <script>
+    /**
+     * Mirror — local-first chat interface.
+     *
+     * All conversation state lives in memory (and optionally localStorage).
+     * Nothing is sent to any server. No analytics. No cookies.
+     */
+
+    'use strict';
+
+    // ── Domain & rights data (self-contained for offline use) ─────────────
+
+    const DOMAINS = {
+      enforcement: 'Enforcement / police / regulatory',
+      benefits:    'Benefits / DWP',
+      housing:     'Housing / landlord',
+      platform:    'Platform / account ban',
+      medical:     'Medical / NHS',
+      credit:      'Credit / financial',
+      employment:  'Employment / workplace',
+      immigration: 'Immigration / Home Office',
+      consumer:    'Consumer / product or service',
+    };
+
+    const RIGHTS = {
+      enforcement: [
+        { name: 'Right to your data (SAR)',     source: 'UK GDPR Article 15' },
+        { name: 'Right to request information', source: 'Freedom of Information Act 2000' },
+        { name: 'Right not to be discriminated against', source: 'Equality Act 2010' },
+      ],
+      benefits: [
+        { name: 'Right to Mandatory Reconsideration', source: 'Social Security Act 1998' },
+        { name: 'Right to appeal to an independent tribunal', source: 'Tribunals, Courts and Enforcement Act 2007' },
+        { name: 'Right to your data (SAR)', source: 'UK GDPR Article 15' },
+      ],
+      housing: [
+        { name: 'Protection against unlawful eviction', source: 'Housing Act 1988; Protection from Eviction Act 1977' },
+        { name: 'Right to a safe and habitable home', source: 'Landlord and Tenant Act 1985 s.11' },
+        { name: 'Right to your deposit back', source: 'Housing Act 2004 s.213' },
+      ],
+      platform: [
+        { name: 'Right to explanation for automated decisions', source: 'UK GDPR Article 22' },
+        { name: 'Right to your data (SAR)', source: 'UK GDPR Article 15' },
+        { name: 'Right to complain to the ICO', source: 'UK GDPR Article 77' },
+      ],
+      medical: [
+        { name: 'Right to access your medical records', source: 'UK GDPR Article 15; Access to Health Records Act 1990' },
+        { name: 'Right to make a formal complaint', source: 'NHS Constitution' },
+        { name: 'Right to escalate to the PHSO', source: 'Health Service Commissioners Act 1993' },
+      ],
+      credit: [
+        { name: 'Right to know what is on your credit file', source: 'UK GDPR Article 15; Consumer Credit Act 1974' },
+        { name: 'Right to challenge inaccurate data', source: 'UK GDPR Article 16' },
+        { name: 'Right to complain to the Financial Ombudsman', source: 'Financial Services and Markets Act 2000' },
+      ],
+      employment: [
+        { name: 'Right not to be unfairly dismissed', source: 'Employment Rights Act 1996 s.94' },
+        { name: 'Right not to be discriminated against', source: 'Equality Act 2010' },
+        { name: 'Right to be paid what you are owed', source: 'Employment Rights Act 1996 Part II' },
+      ],
+      immigration: [
+        { name: 'Right to know the reasons for a refusal', source: 'Immigration Rules; Human Rights Act 1998' },
+        { name: 'Right to access your immigration file', source: 'UK GDPR Article 15' },
+        { name: 'Right to legal representation', source: 'Immigration and Asylum Act 1999' },
+      ],
+      consumer: [
+        { name: 'Right to goods of satisfactory quality', source: 'Consumer Rights Act 2015 s.9' },
+        { name: 'Right to repair, replacement, or refund', source: 'Consumer Rights Act 2015 s.23–24' },
+        { name: 'Right to complain to an ombudsman', source: 'Various sector legislation' },
+      ],
+    };
+
+    const NEXT_STEPS = {
+      enforcement: 'Send a Subject Access Request (SAR) to the organisation involved. Mirror can draft it for you.',
+      benefits:    'Request a Mandatory Reconsideration of the decision. You have one month from the date of the letter.',
+      housing:     'Write to your landlord formally setting out the problem. Give them a clear deadline to respond.',
+      platform:    'Submit a formal written complaint to the platform\'s legal or complaints team — not just customer support.',
+      medical:     'Submit a formal complaint in writing to the healthcare provider\'s Patient Experience team.',
+      credit:      'Request your free statutory credit report from all three Credit Reference Agencies and identify the error.',
+      employment:  'Raise a formal grievance with your employer in writing. Keep a copy of everything.',
+      immigration: 'Note the date on the refusal letter immediately and check your appeal deadline — it may be short.',
+      consumer:    'Write a formal letter of complaint to the company, quoting the Consumer Rights Act 2015.',
+    };
+
+    // ── Classifier ────────────────────────────────────────────────────────
+
+    const KEYWORDS = {
+      enforcement: ['police','arrest','detained','fine','penalty','court','criminal','enforcement','officer','constable','cctv','warrant','bail','caution'],
+      benefits:    ['benefit','universal credit','pip','dwp','esa','jobseeker','jsa','sanction','assessment','welfare','capita','maximus','atos'],
+      housing:     ['landlord','tenant','tenancy','eviction','evicted','section 21','section 8','rent','deposit','damp','mould','disrepair','repairs','housing'],
+      platform:    ['banned','suspended','account','facebook','twitter','instagram','youtube','tiktok','content removed','deplatformed','flagged','marketplace'],
+      medical:     ['hospital','nhs','gp','doctor','nurse','treatment','refused treatment','misdiagnosis','negligence','mental health','sectioned','medication'],
+      credit:      ['credit','credit file','experian','equifax','transunion','debt','bailiff','ccj','default','overdraft','financial ombudsman'],
+      employment:  ['employer','dismissed','dismissal','fired','redundancy','unfair dismissal','discrimination','grievance','wages','pay','tribunal','acas','workplace'],
+      immigration: ['visa','leave to remain','immigration','home office','asylum','refugee','deportation','removal','detention','settled status','ukvi'],
+      consumer:    ['product','faulty','defective','refund','return','warranty','guarantee','scam','fraud','mis-sold','retailer','subscription','parcel'],
+    };
+
+    function classify(text) {
+      const lower = text.toLowerCase().replace(/[^\w\s]/g, ' ');
+      const words = lower.split(/\s+/);
+      const scores = {};
+      for (const domain of Object.keys(KEYWORDS)) {
+        scores[domain] = 0;
+        for (const kw of KEYWORDS[domain]) {
+          if (kw.includes(' ') ? lower.includes(kw) : words.includes(kw)) {
+            scores[domain] += kw.includes(' ') ? 2 : 1;
+          }
+        }
+      }
+      const best = Object.keys(scores).reduce((a, b) => scores[a] >= scores[b] ? a : b);
+      return scores[best] === 0 ? 'consumer' : best;
+    }
+
+    // ── State ─────────────────────────────────────────────────────────────
+
+    const state = {
+      stage: 'greeting',   // greeting | classified | rights_shown | next_step
+      domain: null,
+    };
+
+    // ── UI helpers ────────────────────────────────────────────────────────
+
+    const chatContainer = document.getElementById('chat-container');
+    const form          = document.getElementById('input-form');
+    const input         = document.getElementById('user-input');
+
+    function addMessage(text, role) {
+      const msg = document.createElement('div');
+      msg.className = `message message--${role}`;
+      msg.setAttribute('role', role === 'mirror' ? 'status' : 'log');
+
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.innerHTML = text; // text is constructed internally — not user input
+      msg.appendChild(bubble);
+
+      chatContainer.appendChild(msg);
+      msg.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#x27;');
+    }
+
+    function rightsHtml(domain) {
+      const list = RIGHTS[domain] || [];
+      const items = list
+        .map(r => `<li><strong>${escapeHtml(r.name)}</strong><br><small>${escapeHtml(r.source)}</small></li>`)
+        .join('');
+      return `<p>Based on what you've told me, here are the rights that apply:</p><ul class="rights-list">${items}</ul>`;
+    }
+
+    // ── Conversation flow ─────────────────────────────────────────────────
+
+    function handleInput(userText) {
+      addMessage(escapeHtml(userText), 'user');
+
+      if (state.stage === 'greeting') {
+        const domain = classify(userText);
+        state.domain = domain;
+        state.stage  = 'classified';
+
+        const domainLabel = DOMAINS[domain] || domain;
+
+        setTimeout(() => {
+          addMessage(
+            `It sounds like this might be a <strong>${escapeHtml(domainLabel)}</strong> matter. `
+            + `Is that right? If not, just tell me more and I'll adjust.`,
+            'mirror'
+          );
+        }, 400);
+
+        setTimeout(() => {
+          addMessage(rightsHtml(domain), 'mirror');
+          state.stage = 'rights_shown';
+        }, 1200);
+
+        setTimeout(() => {
+          addMessage(
+            `<p>Here's the one thing to do next:</p>`
+            + `<p class="next-step">${escapeHtml(NEXT_STEPS[domain])}</p>`
+            + `<p>When you're ready to take that step, I can help you draft the communication. Just say <em>draft</em>.</p>`,
+            'mirror'
+          );
+          state.stage = 'next_step';
+        }, 2200);
+
+      } else if (state.stage === 'next_step' || state.stage === 'rights_shown') {
+        const lower = userText.toLowerCase();
+
+        if (/\bdraft\b/.test(lower) || /\btemplate\b/.test(lower) || /\bwrite\b/.test(lower)) {
+          setTimeout(() => {
+            addMessage(
+              `To draft the communication, please use Mirror's Python toolkit from the command line:<br>`
+              + `<code>python -m core.template_engine --domain ${escapeHtml(state.domain)}</code><br><br>`
+              + `The draft will be generated locally on your device. Nothing is sent anywhere.`,
+              'mirror'
+            );
+          }, 400);
+
+        } else if (/\bmore\b/.test(lower) || /\bwhat else\b/.test(lower) || /\bother rights\b/.test(lower)) {
+          setTimeout(() => {
+            addMessage(rightsHtml(state.domain), 'mirror');
+          }, 400);
+
+        } else {
+          // Re-classify in case the user is describing something new
+          const newDomain = classify(userText);
+          if (newDomain !== state.domain) {
+            state.domain = newDomain;
+            const domainLabel = DOMAINS[newDomain] || newDomain;
+            setTimeout(() => {
+              addMessage(
+                `This sounds a bit different — more like a <strong>${escapeHtml(domainLabel)}</strong> situation. Let me update what I'm showing you.`,
+                'mirror'
+              );
+            }, 400);
+            setTimeout(() => {
+              addMessage(rightsHtml(newDomain), 'mirror');
+            }, 1000);
+            setTimeout(() => {
+              addMessage(
+                `<p>One thing to do next:</p><p class="next-step">${escapeHtml(NEXT_STEPS[newDomain])}</p>`,
+                'mirror'
+              );
+            }, 1800);
+          } else {
+            setTimeout(() => {
+              addMessage(
+                `I'm here. Take your time. You can ask me anything about your rights, `
+                + `or say <em>draft</em> when you're ready to put something in writing.`,
+                'mirror'
+              );
+            }, 400);
+          }
+        }
+      }
+    }
+
+    // ── Event listeners ───────────────────────────────────────────────────
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      handleInput(text);
+    });
+
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        form.dispatchEvent(new Event('submit'));
+      }
+    });
+
+    // ── Greeting on load ──────────────────────────────────────────────────
+
+    window.addEventListener('DOMContentLoaded', function () {
+      setTimeout(() => {
+        addMessage(
+          `Hello. I'm Mirror.<br><br>`
+          + `Tell me what happened — in your own words, at your own pace.<br>`
+          + `There's no right way to start.`,
+          'mirror'
+        );
+      }, 300);
+    });
+  </script>
+</body>
+</html>

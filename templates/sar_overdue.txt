@@ -1,0 +1,31 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+Data Protection Officer (or Information Governance Team)
+$organisation_name
+$organisation_address
+
+Dear Sir or Madam,
+
+Subject: Overdue Subject Access Request — Formal Reminder
+
+On $sent_date, I submitted a Subject Access Request under Article 15 of the
+UK General Data Protection Regulation. A copy of that request is attached.
+
+The statutory deadline of one calendar month expired on $deadline_date. I have
+not received a substantive response.
+
+I require you to respond in full within 7 calendar days of this letter.
+
+If I do not receive a response by $chaser_deadline, I intend to raise a
+complaint with the Information Commissioner's Office (ICO) without further notice.
+The ICO can be contacted at: https://ico.org.uk/make-a-complaint/
+
+My reference for this matter: $your_reference
+
+Yours faithfully,
+
+$your_name

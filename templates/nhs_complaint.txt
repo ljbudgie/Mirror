@@ -1,0 +1,45 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+Patient Experience / Complaints Team
+$nhs_organisation
+$organisation_address
+
+Dear Sir or Madam,
+
+Subject: Formal Complaint
+
+I am writing to make a formal complaint under the NHS complaints procedure as
+set out in the Local Authority Social Services and NHS Complaints (England)
+Regulations 2009.
+
+What happened:
+
+$what_happened
+
+Date(s) of the incident(s): $incident_date
+
+This has affected me in the following way:
+
+$impact_statement
+
+I am asking for:
+
+1. A full investigation into the matters described above
+2. A written response explaining what happened, why it happened, and what
+   changes have been made or will be made as a result
+3. $desired_outcome
+
+I understand that I am entitled to an acknowledgement within 3 working days
+and a full response within a reasonable timeframe — typically no more than
+6 months for complex matters.
+
+If I am not satisfied with your response, I reserve the right to refer this
+matter to the Parliamentary and Health Service Ombudsman.
+
+Yours faithfully,
+
+$your_name

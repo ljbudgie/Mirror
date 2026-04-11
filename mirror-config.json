@@ -1,0 +1,12 @@
+{
+  "jurisdiction": "UK",
+  "language": "en",
+  "accessibility": {
+    "large_text": false,
+    "screen_reader": false,
+    "email_only": false
+  },
+  "export_format": "txt",
+  "vault_path": null,
+  "templates_dir": null
+}

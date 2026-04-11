@@ -1,0 +1,40 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+The Complaints Team
+$organisation_name
+$organisation_address
+
+Dear Sir or Madam,
+
+Subject: Formal Complaint
+
+I am writing to make a formal complaint about the treatment I have received from
+$organisation_name.
+
+What happened:
+
+$what_happened
+
+The date(s) involved: $incident_date
+
+This has affected me in the following way:
+
+$impact_statement
+
+What I am asking for:
+
+$desired_outcome
+
+I would be grateful if you could acknowledge receipt of this complaint within
+3 working days, and provide a full written response within 8 weeks.
+
+If I am not satisfied with your response, I reserve the right to escalate this
+matter to the relevant regulator or ombudsman.
+
+Yours faithfully,
+
+$your_name
