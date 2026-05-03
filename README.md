@@ -1,171 +1,312 @@
-# Mirror
+# Mirror — Ecosystem Stack v2
 
-**Tell it what happened. It maps your rights, drafts the letter, and gives you one clear next step.**
+**Mirror is the institutional accountability arm of the Burgess Principle ecosystem: a local-first personal sovereignty toolkit for challenging automated decisions, surfacing human accountability, and turning rights into action.**
 
-Mirror is a local-first tool built on the [Burgess Principle](https://github.com/ljbudgie/burgess-principle) (UK Certification Mark UK00004343685). It helps ordinary people — especially those facing automated decisions by institutions — understand their rights and act on them without needing a solicitor.
+Mirror sits alongside **OpenHear**, the sensory sovereignty arm of the same ecosystem. Together they form a practical stack for defending human agency where institutions automate judgment and where bodies, senses, and assistive technologies become sites of control.
 
-Everything runs on your device. No data leaves. No accounts. No tracking.
+Everything in Mirror is designed around one non-negotiable question:
+
+> **Was a human able to personally review the specific facts of my situation?**
+
+If yes, the decision can be treated as **SOVEREIGN** only when that human review is real, evidenced, and specific. If no — or if the institution cannot prove it — the decision is **NULL** under the Burgess Principle.
 
 MIT licence. Python ≥ 3.11.
 
 ---
 
-## The problem Mirror solves
+## 1. Ecosystem Identity
 
-Institutions — energy companies, councils, credit agencies, platforms, government departments — routinely make automated decisions that affect people's lives without individual human review. Most people don't know they have the right to challenge this, or how.
+### What Mirror is
 
-Mirror closes that gap. You describe what happened in plain English. Mirror tells you what rights apply, gives you one thing to do now, and drafts the letter.
+Mirror is a local-first toolkit for ordinary people facing automated, bureaucratic, or opaque institutional decisions. It helps a person describe what happened in plain English, identifies the relevant rights and routes of challenge, generates a clear next step, and drafts practical communications such as data requests, complaints, appeals, reconsiderations, and escalation letters.
 
----
+Mirror is not a legal advice marketplace, chatbot solicitor, or cloud case-management product. It is a sovereignty tool: it keeps the user's story on their own device and converts institutional confusion into structured, accountable action.
 
-## What it does
+### Relationship to OpenHear and the Burgess Principle
 
-**Classifies your situation** from plain-English input into one of nine domains:
+The **Burgess Principle** is the foundation: a binary accountability test for whether a decision affecting a person was actually reviewed by a human who could consider the specific facts of that person's life.
 
-- Enforcement / debt
-- Benefits
-- Housing
-- Platform / content moderation
-- Medical devices / health data
-- Credit / financial
-- Employment
-- Immigration
-- Consumer
+**Mirror** applies that test to institutional power: councils, employers, platforms, banks, health systems, government departments, landlords, debt collectors, insurers, and other decision-making bodies.
 
-**Maps your rights** — the specific legal rights that apply to your situation, with statutory sources and actions. Not generic advice. Situation-specific.
+**OpenHear** applies the same sovereignty ethos to perception itself: local, privacy-preserving hearing and sensory systems that reduce dependence on corporate hearing infrastructure, proprietary assistive devices, and extractive cloud pipelines. Its **Universal Friend** work extends that idea into trusted-contact support that can remain local, consent-based, and privacy-preserving.
 
-**Gives you one next step** — not a list of options, one clear action to take right now.
+### Two complementary arms
 
-**Drafts the communication** — 27 ready-to-send letter templates including:
-- Subject Access Requests (DSARs)
-- Freedom of Information requests
-- Article 22 automated decision challenges
-- ICO complaints
-- NHS complaints
-- Tribunal appeals
-- Mandatory reconsiderations
-- Chargeback requests
-- Grievance letters
+The Burgess Principle ecosystem now has two complementary arms:
 
-Every template includes the Burgess Principle binary question: *"Was a human member of the team able to personally review the specific facts of my situation?"*
+1. **Institutional Accountability — Mirror**  
+   Helps people challenge automated or opaque decisions and demand evidence of meaningful human review.
 
-**Tracks deadlines** — statutory timelines for DSARs (30 days), FOIs (20 working days), tribunal claims, and complaint acknowledgements.
+2. **Sensory Sovereignty — OpenHear**  
+   Helps people control how sound, haptics, trusted contacts, and future sensory substitution systems support their body without surrendering perception to corporate infrastructure.
 
-**Hashes every outgoing message** — SHA-256 commitment hashing so you can prove a message came from you, on a specific date, without revealing personal data. Tamper-evident by design.
-
-**Optional local AI** — connect Ollama for adaptive classification and context-aware rights mapping. Disabled by default. When enabled, all processing stays on your device.
+Together, they address the same problem at two levels: who controls the decisions made about your life, and who controls the sensory channels through which you experience that life.
 
 ---
 
-## Quickstart
+## 2. Core Philosophy
+
+The Burgess Principle is the non-negotiable foundation of Mirror:
+
+> **A decision that affects a person must be reviewable by a human who can personally consider the specific facts of that person's situation.**
+
+Mirror turns that principle into a workflow. It asks whether automated decision-making was involved, whether meaningful human review occurred, what evidence exists, what deadlines apply, and what action the user can take next.
+
+The wider ecosystem extends the same principle beyond digital rights into bodily senses. Sovereignty is not only about data protection, appeals, or complaints. It is also about whether a person can hear, perceive, communicate, adapt, and receive support without becoming dependent on systems they cannot inspect, control, or leave.
+
+The core commitments are:
+
+- **Local first:** personal facts stay on the user's device by default.
+- **Human review:** institutions must show real, specific, accountable review.
+- **User control:** the person decides what to share, export, send, or escalate.
+- **Practical action:** every workflow should produce a usable next step.
+- **Accessibility as power:** disabled people, patients, carers, and advocates should not need specialist legal or technical knowledge to challenge automated systems.
+- **SOVEREIGN/NULL clarity:** vague process language is not enough; either the institution can evidence meaningful human review or it cannot.
+
+---
+
+## 3. Current Mirror Stack
+
+Mirror currently provides a working local-first stack for institutional accountability.
+
+### Domains
+
+Mirror classifies plain-English user situations across nine domains:
+
+- **Enforcement / debt** — police, fines, bailiffs, regulators, debt collectors
+- **Benefits** — DWP, Universal Credit, PIP, ESA, mandatory reconsiderations
+- **Housing** — landlords, councils, eviction, repairs, deposits, homelessness duties
+- **Platform / content moderation** — account bans, content removal, automated moderation
+- **Medical devices / health data** — NHS complaints, medical records, device-related decisions, health data access, clinical escalation
+- **Credit / financial** — credit files, affordability decisions, chargebacks, ombudsman routes
+- **Employment** — dismissal, discrimination, unpaid wages, grievance routes
+- **Immigration** — Home Office decisions, visa refusals, appeals, evidence gathering
+- **Consumer** — faulty goods, services, subscriptions, refunds, unfair processes
+
+The **Medical devices / health data** domain is strategically central. It is where Mirror's institutional accountability stack naturally meets OpenHear's sensory sovereignty work: hearing aids, cochlear implants, audiology decisions, haptic systems, health records, algorithmic triage, device eligibility, and future sensory substitution technologies all create decisions that may need to be challenged.
+
+### Local-first architecture
+
+Mirror is designed to run without accounts, servers, analytics, or tracking.
+
+```text
+/core        Python modules — conversation, rights, next step, templates, commitment, timeline, AI adapter
+/prompts     System prompts for optional local AI integration
+/templates   27 ready-to-send letter templates
+/web         Local-first chat interface (HTML + CSS, no dependencies)
+/docs        User guide, security policy, contributing guide
+```
+
+Quickstart:
 
 ```bash
 pip install -e ".[dev]"
 pytest
 ```
 
-Open `web/index.html` in your browser. No server needed.
+Then open `web/index.html` in a browser. No server is required.
+
+### Templates and actions
+
+Mirror includes 27 ready-to-send templates, including:
+
+- Subject Access Requests (DSARs)
+- Freedom of Information requests
+- Article 22 automated decision challenges
+- ICO complaints
+- NHS complaints
+- Parliamentary and Health Service Ombudsman referrals
+- Mandatory reconsiderations
+- Tribunal appeals
+- Credit disputes
+- Financial Ombudsman complaints
+- Chargeback requests
+- Housing and landlord complaints
+- Platform complaints
+- Grievance letters
+- Generic escalation letters
+
+Every template is intended to convert confusion into a concrete action and to preserve the Burgess Principle question at the point of contact with the institution.
+
+### AI integration
+
+Mirror works without AI through deterministic classification, rights mapping, next-step selection, timeline logic, and template generation.
+
+Optional local AI can be enabled through Ollama for adaptive classification and context-aware rights mapping. AI is disabled by default, uses a local backend when enabled, and falls back to the deterministic engine when unavailable.
+
+### Commitment hashing and evidence discipline
+
+Mirror generates SHA-256 commitment hashes for outgoing communications. This allows a user to prove that a message existed at a specific point in time without revealing the message contents publicly.
+
+The goal is not just to send letters. The goal is to create an evidence trail that strengthens the user's position while preserving privacy.
 
 ---
 
-## Structure
+## 4. Positioning in the Wider Landscape
 
+### Compared with traditional legal tools and advice services
+
+Most legal tools begin with procedure: forms, categories, jurisdiction, eligibility, or referral pathways. Mirror begins with the user's lived event and asks whether power was exercised accountably.
+
+Traditional advice services often depend on scarce expert capacity. Corporate legal-tech tools often depend on accounts, cloud processing, monetised data, or platform lock-in. Mirror is different because it gives the user a private, local, repeatable way to structure their situation before deciding whether to seek advice, escalate, or send a formal request.
+
+Mirror does not replace lawyers, advice workers, or advocates. It makes the first move easier, clearer, and more accountable.
+
+### Synergy with OpenHear
+
+OpenHear explores hearing sovereignty, trusted local contact systems, and future haptic or multisensory interfaces. Mirror provides the accountability layer when institutions make decisions about those technologies.
+
+Examples include:
+
+- A health service refuses or delays hearing support without explaining the decision.
+- An insurer, employer, school, or benefits body relies on device data or audiology records.
+- A proprietary hearing platform changes access, features, or support through automated policy.
+- A future haptic wristband, sensory substitution device, or BrainPort-style system becomes part of a clinical, workplace, educational, or benefits decision.
+- A trusted contact workflow, such as Universal Friend, needs user-controlled evidence and consent boundaries when institutions are involved.
+
+OpenHear protects the sensory channel. Mirror challenges the institution when that channel is governed, denied, scored, or misunderstood.
+
+### Patient-led innovation and biohacking context
+
+Mirror and OpenHear belong in the lineage of patient-led innovation and responsible biohacking: people refusing to wait passively for institutions to understand their bodies, devices, or daily realities.
+
+The parallels are clear:
+
+- **Dana Lewis** and the open artificial pancreas movement showed that patients can build safer, more responsive systems when official pathways move too slowly.
+- **Hugo Campos** and patient data-rights advocacy showed that people need access to the information produced by devices implanted in or used on their own bodies.
+- Hearing hackers, disabled technologists, quantified-self communities, and assistive-tech tinkerers continue to show that lived expertise is not a secondary input — it is often the source of the breakthrough.
+
+The Burgess Principle ecosystem gives that movement an accountability language: if an institution makes a decision about your body, data, device, support, or sensory access, it must be able to show that a real human reviewed the specific facts.
+
+---
+
+## 5. Ecosystem Architecture
+
+The Burgess Principle ecosystem can be understood as a complete sovereignty stack:
+
+```text
+Burgess Principle
+└── The accountability standard: SOVEREIGN or NULL
+
+Mirror
+└── Institutional accountability: rights mapping, templates, evidence, deadlines, escalation
+
+OpenHear
+└── Sensory sovereignty: local hearing pipeline, haptics, trusted contacts, perceptual augmentation
+
+Universal Friend
+└── Consent-based trusted-contact layer: human support without surrendering privacy
+
+Future integrations
+└── Shared evidence, sensory-device decisions, local identity, accessibility workflows, user-controlled exports
 ```
-/core        Python modules — conversation, rights, next step, templates, commitment, timeline, AI adapter
-/prompts     System prompts for local AI integration
-/templates   27 ready-to-send letter templates
-/web         Local-first chat interface (HTML + CSS, no dependencies)
-/docs        User guide, security policy, contributing guide
-```
+
+### Shared principles
+
+Across Mirror and OpenHear, the architecture follows the same rules:
+
+- **Local-first by default** — the user's facts, audio, sensory signals, and support relationships should not require cloud extraction.
+- **SOVEREIGN/NULL test** — decisions either have evidenced, specific human review or they do not.
+- **Privacy as architecture, not policy** — privacy should be enforced by design rather than promised in a terms page.
+- **User-controlled disclosure** — users choose when to export, share, escalate, or involve a trusted person.
+- **Assistive autonomy** — tools should increase the user's agency, not create a new dependency they cannot inspect or leave.
+- **Institutional legibility** — outputs must be clear enough for councils, NHS bodies, ombudsmen, employers, courts, platforms, and regulators to understand.
+
+Mirror is the paper trail and challenge engine. OpenHear is the perceptual and trusted-support engine. The Burgess Principle is the test that makes both coherent.
 
 ---
 
-## Who this is for
+## 6. Future Evolution Roadmap
 
-- Anyone who has received an automated decision from an institution and doesn't know how to challenge it
-- Disabled people and others who face additional barriers accessing institutional processes
-- Advice workers, legal clinics, and advocates who want to help clients act quickly
-- Developers building on the Burgess Principle ecosystem
+### Short term: next 3–6 months
 
-You do not need legal training to use Mirror. You need to be able to describe what happened.
+- Strengthen the Medical devices / health data domain with clearer pathways for audiology, device eligibility, health records, NHS complaints, and data access.
+- Expand template coverage for automated decision challenges, medical-device disputes, disability-related institutional decisions, and sensory-technology access.
+- Improve the local web interface so users can move from plain-English description to rights, next step, template, deadline, and commitment hash with less friction.
+- Refine optional local AI prompts while preserving deterministic fallbacks and no-cloud defaults.
+- Improve accessibility output modes for screen readers, large text, simplified wording, and email-only workflows.
 
----
+### Medium term: integrations and expanded domains
 
-## Privacy
+- Connect Mirror workflows to OpenHear scenarios where hearing technology, trusted contacts, haptic alerts, or sensory substitution systems are involved in institutional decisions.
+- Create structured pathways for challenging decisions about hearing aids, cochlear implants, haptic wristbands, assistive devices, audiology records, workplace adjustments, education support, benefits assessments, and health-data reuse.
+- Support user-controlled exports that can package a situation summary, Burgess Principle question, evidence checklist, deadline timeline, and template into a single local bundle.
+- Build stronger advocate and trusted-contact workflows inspired by Universal Friend, allowing a user to involve another human without surrendering the whole case file.
+- Extend international framework guidance while preserving UK-first statutory precision where it already exists.
 
-Mirror is local-first by design.
+### Long term: 5–15 years
 
-- No data leaves your device
-- No accounts or registration
-- No analytics or tracking
-- No cookies
-- The web interface makes no network requests
-- Your commitment vault is encrypted on your device
-- AI features (when enabled) use a local backend — no cloud APIs
+The long-term ambition is not only better complaint letters. It is a shift in the balance of power between people and institutions.
 
----
+Over the next 5–15 years, automated systems will increasingly decide access to benefits, housing, credit, work, education, healthcare, insurance, assistive technology, and sensory augmentation. At the same time, hearing, vision, touch, balance, and attention may become mediated by devices that are adaptive, networked, and algorithmic.
 
-## Local AI (optional)
+The Burgess Principle ecosystem should become a public-interest counterweight to that future:
 
-Mirror works fully without AI — the deterministic rule-based engine handles classification, rights mapping, and template selection. AI adds adaptive classification and situationally tailored Burgess questions for edge cases.
+- A person should be able to challenge any consequential decision and demand proof of specific human review.
+- A disabled person should not lose agency because an institution cannot understand their assistive technology, sensory profile, or device data.
+- A patient should be able to access, interpret, and contest decisions made from data generated by their own body.
+- A sensory device should extend perception without becoming a corporate gatekeeper over reality.
+- A trusted support network should strengthen autonomy without creating surveillance.
 
-### Setup
-
-1. Install [Ollama](https://ollama.com/) and pull a model:
-
-```bash
-ollama pull mistral
-```
-
-2. Enable in `mirror-config.json`:
-
-```json
-{
-  "ai": {
-    "enabled": true,
-    "model": "mistral",
-    "base_url": "http://localhost:11434",
-    "timeout": 120
-  }
-}
-```
-
-3. Install the optional dependency:
-
-```bash
-pip install -e ".[ai]"
-```
-
-When AI is unavailable or disabled, Mirror falls back to the deterministic engine. Nothing breaks.
+At humanity level, the goal is to make human agency non-optional in systems that govern human lives.
 
 ---
 
-## Documentation
+## 7. Sensory & Perceptual Layer
 
-- [User guide](docs/user_guide.md) — full usage instructions, configuration, and examples
-- [Contributing](docs/CONTRIBUTING.md) — how to help, code style, and pull request process
-- [Security policy](docs/SECURITY.md) — vulnerability reporting, data handling, and threat model
+Mirror can evolve into the accountability layer for decisions about sensory technologies.
 
----
+This matters because hearing aids, cochlear implants, haptic wristbands, BrainPort-style sensory substitution devices, visual-to-tactile systems, and future perceptual augmentation tools will not exist only as personal gadgets. They will intersect with institutions: healthcare eligibility, insurance coverage, school support, employment adjustments, benefits assessments, clinical records, device procurement, data access, and platform policies.
 
-## The Burgess Principle
+OpenHear's work points toward a deeper frontier: changing not only how sound is processed, but how sensory information is translated across the body. Haptic signals may support hearing. Audio may influence spatial awareness. Sensory substitution may affect visual perception, attention, orientation, and the felt frequency of the world.
 
-Mirror is built on the Burgess Principle — a simple accountability standard that asks one binary question of any institution:
+When those systems become part of institutional life, Mirror should help users ask:
 
-> *"Was a human member of the team able to personally review the specific facts of my situation?"*
+- Who made the decision about my access to this technology?
+- Was the decision based on a generic pathway, automated score, procurement rule, or actual human review?
+- Did anyone consider the specific facts of my hearing, vision, sensory profile, disability, work, family, communication needs, and daily life?
+- What data from my device or body was used?
+- Can I access it, correct it, challenge it, or refuse secondary use?
+- Can I involve a trusted person through a Universal Friend-style workflow without giving the institution unnecessary access?
 
-The answer is either SOVEREIGN (yes, with evidence) or NULL (no, or no evidence provided).
-
-The Burgess Principle is free and MIT-licensed. The certification mark (UK00004343685) is separately governed. [Read more](https://github.com/ljbudgie/burgess-principle).
-
----
-
-## Contributing
-
-Contributions are welcome — particularly additional domain coverage, new letter templates, and accessibility improvements. See [CONTRIBUTING.md](docs/CONTRIBUTING.md).
-
-The one requirement: every contribution must preserve the local-first, no-data-leaves principle. That is not a feature. It is the foundation.
+The sensory and perceptual layer makes the ecosystem future-ready. It recognises that sovereignty will not stop at screens, forms, or databases. It will include the right to shape, protect, and contest the mediated senses through which people meet the world.
 
 ---
 
-*Mirror — see where you stand.*
+## 8. Strategic Differentiators
+
+### Different from corporate tools
+
+Corporate tools usually optimise for scale, capture, retention, analytics, compliance theatre, or proprietary advantage. Even well-designed products often ask users to trade privacy for convenience.
+
+The Burgess Principle ecosystem starts from the opposite premise:
+
+- The user is not the product.
+- The user's story does not need to leave their device to become useful.
+- AI is optional, local, and subordinate to the user's agency.
+- Assistive technology should not become another surveillance surface.
+- Institutions should not be allowed to hide behind automation, triage, policy scripts, or vendor systems.
+
+### Different from traditional activism
+
+Traditional activism often works at the level of campaigns, public pressure, policy reform, or collective mobilisation. Those are necessary, but they do not always help the person who has a deadline tomorrow, a benefit stopped today, a device refused last week, or an account banned without explanation.
+
+Mirror and OpenHear bring activism down to the level of usable infrastructure:
+
+- A question anyone can ask.
+- A letter anyone can send.
+- A hash anyone can keep.
+- A sensory tool anyone can run locally.
+- A trusted-contact pathway that does not require surrendering privacy.
+- A framework that connects individual cases to systemic accountability.
+
+This is not corporate convenience and it is not symbolic resistance. It is practical sovereignty.
+
+
+### North Star
+
+The North Star of the Burgess Principle ecosystem is a world where no person is made powerless by an automated decision, an opaque institution, a locked medical device, an inaccessible sensory system, or a platform that refuses to recognise the facts of their life.
+
+Mirror helps people see where they stand and act. OpenHear helps people control how they hear, sense, and connect. The Burgess Principle binds both into one standard:
+
+> **If a system affects a human life, a human must be able to review the specific facts — and the person affected must have the tools to prove, challenge, and reclaim their agency.**
