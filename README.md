@@ -2,7 +2,7 @@
 
 **Mirror is the institutional accountability arm of the Burgess Principle ecosystem: a local-first personal sovereignty toolkit for challenging automated decisions, surfacing human accountability, and turning rights into action.**
 
-Mirror sits alongside **OpenHear**, the sensory sovereignty arm of the same ecosystem. Together they form a practical stack for defending human agency where institutions automate judgment and where bodies, senses, and assistive technologies become sites of control.
+Mirror sits alongside **OpenHear** (a local hearing, haptic, and sensory processing toolkit), the sensory sovereignty arm of the same ecosystem. Together they form a practical stack for defending human agency where institutions automate judgment and where bodies, senses, and assistive technologies become sites of control.
 
 Everything in Mirror is designed around one non-negotiable question:
 
@@ -83,7 +83,7 @@ Mirror classifies plain-English user situations across nine domains:
 - **Immigration** — Home Office decisions, visa refusals, appeals, evidence gathering
 - **Consumer** — faulty goods, services, subscriptions, refunds, unfair processes
 
-The **Medical devices / health data** domain is strategically central. It is where Mirror's institutional accountability stack naturally meets OpenHear's sensory sovereignty work: hearing aids, cochlear implants, audiology decisions, haptic systems, health records, algorithmic triage, device eligibility, and future sensory substitution technologies all create decisions that may need to be challenged.
+The **Medical devices / health data** domain is strategically central because it is where Mirror's institutional accountability stack naturally meets OpenHear's sensory sovereignty work. Hearing aids, cochlear implants, audiology decisions, haptic systems, health records, algorithmic triage, device eligibility, and future sensory substitution technologies all create decisions that may need to be challenged.
 
 ### Local-first architecture
 
@@ -172,8 +172,8 @@ Mirror and OpenHear belong in the lineage of patient-led innovation and responsi
 
 The parallels are clear:
 
-- **Dana Lewis** and the open artificial pancreas movement showed that patients can build safer, more responsive systems when official pathways move too slowly.
-- **Hugo Campos** and patient data-rights advocacy showed that people need access to the information produced by devices implanted in or used on their own bodies.
+- **Dana Lewis** — creator of OpenAPS, an open-source artificial pancreas system — showed that patients can build safer, more responsive systems when official pathways move too slowly.
+- **Hugo Campos** — a leading advocate for patient access to implanted cardiac-device data — showed that people need access to the information produced by devices implanted in or used on their own bodies.
 - Hearing hackers, disabled technologists, quantified-self communities, and assistive-tech tinkerers continue to show that lived expertise is not a secondary input — it is often the source of the breakthrough.
 
 The Burgess Principle ecosystem gives that movement an accountability language: if an institution makes a decision about your body, data, device, support, or sensory access, it must be able to show that a real human reviewed the specific facts.
@@ -302,8 +302,7 @@ Mirror and OpenHear bring activism down to the level of usable infrastructure:
 
 This is not corporate convenience and it is not symbolic resistance. It is practical sovereignty.
 
-
-### North Star
+### North Star as an ecosystem differentiator
 
 The North Star of the Burgess Principle ecosystem is a world where no person is made powerless by an automated decision, an opaque institution, a locked medical device, an inaccessible sensory system, or a platform that refuses to recognise the facts of their life.
 
