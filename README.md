@@ -256,7 +256,7 @@ At humanity level, the goal is to make human agency non-optional in systems that
 
 Mirror can evolve into the accountability layer for decisions about sensory technologies.
 
-This matters because hearing aids, cochlear implants, haptic wristbands, BrainPort-style sensory substitution devices (systems that translate visual information into tactile sensations), visual-to-tactile systems, and future perceptual augmentation tools will not exist only as personal gadgets. They will intersect with institutions: healthcare eligibility, insurance coverage, school support, employment adjustments, benefits assessments, clinical records, device procurement, data access, and platform policies.
+This matters because hearing aids, cochlear implants, haptic wristbands, BrainPort-style sensory substitution devices, visual-to-tactile systems, and future perceptual augmentation tools will not exist only as personal gadgets. BrainPort-style systems translate visual information into tactile sensations. Similar technologies will intersect with institutions through healthcare eligibility, insurance coverage, school support, employment adjustments, benefits assessments, clinical records, device procurement, data access, and platform policies.
 
 OpenHear's work points toward a deeper frontier: changing not only how sound is processed, but how sensory information is translated across the body. Haptic signals may support hearing. Audio may influence spatial awareness. Sensory substitution may affect visual perception, attention, orientation, and the felt frequency of the world.
 
@@ -308,4 +308,4 @@ The North Star of the Burgess Principle ecosystem is a world where no person is 
 
 Mirror helps people see where they stand and act. OpenHear helps people control how they hear, sense, and connect. The Burgess Principle binds both into one standard:
 
-> **If a system affects a human life, a human must be able to review the specific facts — and the person affected must have the tools to prove, challenge, and reclaim their agency.**
+> **If a system affects a human life, a human must be able to review the specific facts — and the person affected must have the tools to prove what happened, challenge the decision, and choose their next action.**
