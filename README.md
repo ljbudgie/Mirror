@@ -24,11 +24,11 @@ Mirror is not a legal advice marketplace, chatbot solicitor, or cloud case-manag
 
 ### Relationship to OpenHear and the Burgess Principle
 
-The **Burgess Principle** is the foundation: a binary accountability test for whether a decision affecting a person was actually reviewed by a human who could consider the specific facts of that person's life.
+The **Burgess Principle** is the foundation: a binary accountability test for whether a decision affecting a person was actually reviewed by a human who could consider the specific facts of that person's situation.
 
 **Mirror** applies that test to institutional power: councils, employers, platforms, banks, health systems, government departments, landlords, debt collectors, insurers, and other decision-making bodies.
 
-**OpenHear** applies the same sovereignty ethos to perception itself: local, privacy-preserving hearing and sensory systems that reduce dependence on corporate hearing infrastructure, proprietary assistive devices, and extractive cloud pipelines. Its **Universal Friend** work extends that idea into trusted-contact support that can remain local, consent-based, and privacy-preserving.
+**OpenHear** applies the same sovereignty ethos to perception itself: local, privacy-preserving hearing and sensory systems that reduce dependence on corporate hearing infrastructure, proprietary assistive devices, and cloud pipelines that extract value from user data. Its **Universal Friend** work extends that idea into trusted-contact support that can remain local, consent-based, and privacy-preserving.
 
 ### Two complementary arms
 
@@ -77,7 +77,7 @@ Mirror classifies plain-English user situations across nine domains:
 - **Benefits** — DWP, Universal Credit, PIP, ESA, mandatory reconsiderations
 - **Housing** — landlords, councils, eviction, repairs, deposits, homelessness duties
 - **Platform / content moderation** — account bans, content removal, automated moderation
-- **Medical devices / health data** — NHS complaints, medical records, device-related decisions, health data access, clinical escalation
+- **Medical devices / health data** — one integrated domain covering NHS complaints, medical records, device-related decisions, health data access, and clinical escalation
 - **Credit / financial** — credit files, affordability decisions, chargebacks, ombudsman routes
 - **Employment** — dismissal, discrimination, unpaid wages, grievance routes
 - **Immigration** — Home Office decisions, visa refusals, appeals, evidence gathering
@@ -172,8 +172,8 @@ Mirror and OpenHear belong in the lineage of patient-led innovation and responsi
 
 The parallels are clear:
 
-- **Dana Lewis** — creator of OpenAPS, an open-source artificial pancreas system — showed that patients can build safer, more responsive systems when official pathways move too slowly.
-- **Hugo Campos** — a leading advocate for patient access to implanted cardiac-device data — showed that people need access to the information produced by devices implanted in or used on their own bodies.
+- **Dana Lewis** — creator of OpenAPS, an open-source artificial pancreas system pioneered in the 2010s and still influential in diabetes technology — showed that patients can build safer, more responsive systems when official pathways move too slowly.
+- **Hugo Campos** — a continuing advocate for patient access to implanted cardiac-device data — showed that people need access to the information produced by devices implanted in or used on their own bodies.
 - Hearing hackers, disabled technologists, quantified-self communities, and assistive-tech tinkerers continue to show that lived expertise is not a secondary input — it is often the source of the breakthrough.
 
 The Burgess Principle ecosystem gives that movement an accountability language: if an institution makes a decision about your body, data, device, support, or sensory access, it must be able to show that a real human reviewed the specific facts.
@@ -256,7 +256,7 @@ At humanity level, the goal is to make human agency non-optional in systems that
 
 Mirror can evolve into the accountability layer for decisions about sensory technologies.
 
-This matters because hearing aids, cochlear implants, haptic wristbands, BrainPort-style sensory substitution devices, visual-to-tactile systems, and future perceptual augmentation tools will not exist only as personal gadgets. They will intersect with institutions: healthcare eligibility, insurance coverage, school support, employment adjustments, benefits assessments, clinical records, device procurement, data access, and platform policies.
+This matters because hearing aids, cochlear implants, haptic wristbands, BrainPort-style sensory substitution devices (systems that translate visual information into tactile sensations), visual-to-tactile systems, and future perceptual augmentation tools will not exist only as personal gadgets. They will intersect with institutions: healthcare eligibility, insurance coverage, school support, employment adjustments, benefits assessments, clinical records, device procurement, data access, and platform policies.
 
 OpenHear's work points toward a deeper frontier: changing not only how sound is processed, but how sensory information is translated across the body. Haptic signals may support hearing. Audio may influence spatial awareness. Sensory substitution may affect visual perception, attention, orientation, and the felt frequency of the world.
 
