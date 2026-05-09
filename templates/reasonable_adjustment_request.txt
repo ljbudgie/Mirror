@@ -1,0 +1,42 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+$organisation_name
+$organisation_address
+
+Dear Sir or Madam,
+
+Subject: Request for Reasonable Adjustment and Human Review
+
+I am asking you to make a reasonable adjustment connected with my disability,
+health condition, hearing, sensory access, or assistive technology needs.
+
+Adjustment requested:
+
+$adjustment_requested
+
+Why I need it:
+
+$why_needed
+
+What has happened so far:
+
+$what_happened
+
+Please confirm in writing:
+
+1. Whether you agree to the adjustment
+2. If not, the specific reasons for refusal
+3. The name or role of the person who reviewed my specific facts
+4. What evidence, records, device data, or policy criteria were considered
+5. Any alternative adjustment you propose
+
+I am asking for this to be reviewed calmly and individually, rather than treated
+as a generic policy decision.
+
+Yours faithfully,
+
+$your_name

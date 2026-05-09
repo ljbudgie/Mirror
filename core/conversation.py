@@ -60,7 +60,13 @@ _DOMAIN_KEYWORDS: dict[str, list[str]] = {
         "clinical", "mental health", "sectioned", "medication", "prescription",
         "care plan", "social care", "cqc", "complaint", "patient",
         "ambulance", "a&e", "accident and emergency", "discharge",
-        "medical record", "health record",
+        "medical record", "health record", "health data", "medical device",
+        "medical-device", "device data", "hearing aid", "hearing aids",
+        "cochlear implant", "cochlear implants", "audiology", "audiologist",
+        "haptic", "haptic device", "haptic wristband", "assistive device",
+        "assistive technology", "sensory substitution", "device eligibility",
+        "eligibility decision", "device refused", "hearing support",
+        "workplace adjustment", "reasonable adjustment", "disability support",
     ],
     "credit": [
         "credit", "credit file", "credit report", "experian", "equifax",
@@ -158,9 +164,9 @@ def prompt_for_detail(domain: str) -> str:
             "from them explaining why?"
         ),
         "medical": (
-            "This sounds like it involves a healthcare provider. Has anyone "
-            "spoken to you about what happened, and have you made a formal "
-            "complaint yet?"
+            "This sounds like it involves healthcare, health data, or an "
+            "assistive device decision. Has anyone given you written reasons, "
+            "and has a named person reviewed your specific facts?"
         ),
         "credit": (
             "This sounds like a financial or credit matter. Do you know which "

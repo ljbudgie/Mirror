@@ -130,6 +130,12 @@ class TestLoadSystemPrompt:
         prompt = load_system_prompt("master-system")
         assert "Classify" in prompt
 
+    def test_prompt_contains_ecosystem_context(self):
+        prompt = load_system_prompt("master-system")
+        assert "OpenHear" in prompt
+        assert "Universal Friend" in prompt
+        assert "Medical devices / health data" in prompt
+
     def test_prompt_contains_json_format(self):
         prompt = load_system_prompt("master-system")
         assert "classification" in prompt

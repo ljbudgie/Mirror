@@ -64,7 +64,7 @@
       benefits:    'Benefits / DWP',
       housing:     'Housing / landlord',
       platform:    'Platform / account ban',
-      medical:     'Medical / NHS',
+      medical:     'Medical devices / health data',
       credit:      'Credit / financial',
       employment:  'Employment / workplace',
       immigration: 'Immigration / Home Office',
@@ -94,6 +94,9 @@
       ],
       medical: [
         { name: 'Right to access your medical records', source: 'UK GDPR Article 15; Access to Health Records Act 1990' },
+        { name: 'Right to correct inaccurate health or device data', source: 'UK GDPR Article 16' },
+        { name: 'Right to challenge solely automated decisions', source: 'UK GDPR Article 22' },
+        { name: 'Right to reasonable adjustments', source: 'Equality Act 2010' },
         { name: 'Right to make a formal complaint', source: 'NHS Constitution' },
         { name: 'Right to escalate to the PHSO', source: 'Health Service Commissioners Act 1993' },
       ],
@@ -124,7 +127,7 @@
       benefits:    'Request a Mandatory Reconsideration of the decision. You have one month from the date of the letter.',
       housing:     'Write to your landlord formally setting out the problem. Give them a clear deadline to respond.',
       platform:    'Submit a formal written complaint to the platform\'s legal or complaints team — not just customer support.',
-      medical:     'Submit a formal complaint in writing to the healthcare provider\'s Patient Experience team.',
+      medical:     'Ask the provider for written reasons and a named human review of the health, device, audiology, or access decision.',
       credit:      'Request your free statutory credit report from all three Credit Reference Agencies and identify the error.',
       employment:  'Raise a formal grievance with your employer in writing. Keep a copy of everything.',
       immigration: 'Note the date on the refusal letter immediately and check your appeal deadline — it may be short.',
@@ -138,7 +141,7 @@
       benefits:    ['benefit','universal credit','pip','dwp','esa','jobseeker','jsa','sanction','assessment','welfare','capita','maximus','atos'],
       housing:     ['landlord','tenant','tenancy','eviction','evicted','section 21','section 8','rent','deposit','damp','mould','disrepair','repairs','housing'],
       platform:    ['banned','suspended','account','facebook','twitter','instagram','youtube','tiktok','content removed','deplatformed','flagged','marketplace'],
-      medical:     ['hospital','nhs','gp','doctor','nurse','treatment','refused treatment','misdiagnosis','negligence','mental health','sectioned','medication'],
+      medical:     ['hospital','nhs','gp','doctor','nurse','treatment','refused treatment','misdiagnosis','negligence','mental health','sectioned','medication','medical record','health record','health data','medical device','device data','hearing aid','hearing aids','cochlear implant','cochlear implants','audiology','audiologist','haptic','haptic device','assistive device','assistive technology','sensory substitution','device eligibility','hearing support','reasonable adjustment','disability support'],
       credit:      ['credit','credit file','experian','equifax','transunion','debt','bailiff','ccj','default','overdraft','financial ombudsman'],
       employment:  ['employer','dismissed','dismissal','fired','redundancy','unfair dismissal','discrimination','grievance','wages','pay','tribunal','acas','workplace'],
       immigration: ['visa','leave to remain','immigration','home office','asylum','refugee','deportation','removal','detention','settled status','ukvi'],
@@ -233,8 +236,9 @@
         setTimeout(() => {
           addMessage(
             `<p>Here's the one thing to do next:</p>`
-            + `<p class="next-step">${escapeHtml(NEXT_STEPS[domain])}</p>`
-            + `<p>When you're ready to take that step, I can help you draft the communication. Just say <em>draft</em>.</p>`,
+              + `<p class="next-step">${escapeHtml(NEXT_STEPS[domain])}</p>`
+              + `<p>When you're ready to take that step, I can help you draft the communication. Just say <em>draft</em>.</p>`
+              + `<p>For important letters, keep a local copy, note any deadline, and generate a commitment hash with the Python toolkit so you can verify what you sent later.</p>`,
             'mirror'
           );
           state.stage = 'next_step';
@@ -250,7 +254,9 @@
               + `<code>python -c "from core.template_engine import render, list_templates; print(list_templates())"</code><br><br>`
               + `Then render a template with your details:<br><br>`
               + `<code>python -c "from core.template_engine import render; print(render('sar_request', {'your_name': 'Your Name'}))"</code><br><br>`
-              + `The draft will be generated locally on your device. Nothing is sent anywhere.`,
+              + `The draft will be generated locally on your device. Nothing is sent anywhere.<br><br>`
+              + `For an evidence trail, generate a local commitment hash after the draft is final:<br><br>`
+              + `<code>python -c "from core.commitment import generate_commitment; print(generate_commitment('paste final message here'))"</code>`,
               'mirror'
             );
           }, 400);

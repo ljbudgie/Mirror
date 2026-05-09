@@ -44,6 +44,23 @@ class TestGetNextStep:
         result = get_next_step("employment", Stage.INITIAL)
         assert "grievance" in result.action.lower()
 
+    def test_medical_initial_uses_device_access_template(self):
+        result = get_next_step("medical", Stage.INITIAL)
+        assert result.template_key == "medical_device_access_request"
+        assert "human review" in result.action.lower()
+
+    def test_medical_response_received_challenges_decision(self):
+        result = get_next_step("medical", Stage.RESPONSE_RECEIVED)
+        assert result.template_key == "audiology_decision_challenge"
+
+    def test_platform_response_received_requests_device_data(self):
+        result = get_next_step("platform", Stage.RESPONSE_RECEIVED)
+        assert result.template_key == "device_data_access_request"
+
+    def test_employment_response_received_requests_adjustment_review(self):
+        result = get_next_step("employment", Stage.RESPONSE_RECEIVED)
+        assert result.template_key == "reasonable_adjustment_request"
+
     def test_unknown_domain_returns_default(self):
         result = get_next_step("totally_unknown_domain", Stage.INITIAL)
         assert isinstance(result, NextStep)

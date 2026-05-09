@@ -67,6 +67,18 @@ class TestListTemplates:
         for expected in ["sar_request", "generic_complaint", "foi_request"]:
             assert expected in templates, f"Expected template '{expected}' not found"
 
+    def test_ecosystem_templates_exist(self):
+        templates = list_templates()
+        for expected in [
+            "medical_device_access_request",
+            "audiology_decision_challenge",
+            "assistive_technology_complaint",
+            "device_data_access_request",
+            "reasonable_adjustment_request",
+            "trusted_contact_authority",
+        ]:
+            assert expected in templates, f"Expected template '{expected}' not found"
+
     def test_returns_empty_list_when_directory_missing(self, monkeypatch):
         import core.template_engine as te
         monkeypatch.setattr(te, "_TEMPLATES_DIR", Path("/nonexistent/templates"))

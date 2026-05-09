@@ -1,0 +1,41 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+Data Protection Officer / Information Governance Team
+$organisation_name
+$organisation_address
+
+Dear Sir or Madam,
+
+Subject: Request for Device, Account, or Automated Decision Data
+
+I am writing to request access to personal data connected with the following
+device, account, app, platform, or automated decision:
+
+$device_or_account
+
+Please provide all personal data relating to:
+
+1. Device logs, usage records, sensor records, haptic or hearing-related data,
+   account flags, moderation notes, or risk scores
+2. Any automated processing, triage, recommendation, eligibility, or moderation
+   process applied to me
+3. The logic, criteria, or policy used in any automated or semi-automated
+   decision
+4. Internal notes, review records, and communications about the decision
+5. Any third parties who received or supplied data about me
+
+My details to help you locate the records:
+
+Full name: $your_full_name
+Date of birth: $your_dob
+Account or reference number: $reference_number
+
+Please respond within one calendar month.
+
+Yours faithfully,
+
+$your_name
