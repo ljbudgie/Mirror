@@ -208,8 +208,9 @@ _STEP_MAP: dict[tuple[str, Stage], NextStep] = {
         action="Request the device, account, or moderation data behind the platform decision.",
         detail=(
             "If a platform, app, or connected-device account has restricted access, "
-            "ask for the data, flags, scores, and human-review notes used in the "
-            "decision. This keeps the next step evidence-based and local to you."
+            "ask for the moderation data, flags, scores, and human-review notes "
+            "used in the decision. This keeps the next step evidence-based and "
+            "local to you."
         ),
         template_key="device_data_access_request",
         stage_after=Stage.AWAITING_RESPONSE,

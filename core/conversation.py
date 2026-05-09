@@ -61,7 +61,7 @@ _DOMAIN_KEYWORDS: dict[str, list[str]] = {
         "care plan", "social care", "cqc", "complaint", "patient",
         "ambulance", "a&e", "accident and emergency", "discharge",
         "medical record", "health record", "health data", "medical device",
-        "medical-device", "device data", "hearing aid", "hearing aids",
+        "device data", "hearing aid", "hearing aids",
         "cochlear implant", "cochlear implants", "audiology", "audiologist",
         "haptic", "haptic device", "haptic wristband", "assistive device",
         "assistive technology", "sensory substitution", "device eligibility",

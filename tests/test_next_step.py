@@ -56,10 +56,14 @@ class TestGetNextStep:
     def test_platform_response_received_requests_device_data(self):
         result = get_next_step("platform", Stage.RESPONSE_RECEIVED)
         assert result.template_key == "device_data_access_request"
+        assert "data" in result.action.lower()
+        assert "moderation" in result.detail.lower()
 
     def test_employment_response_received_requests_adjustment_review(self):
         result = get_next_step("employment", Stage.RESPONSE_RECEIVED)
         assert result.template_key == "reasonable_adjustment_request"
+        assert "reasonable adjustment" in result.action.lower()
+        assert "human review" in result.detail.lower()
 
     def test_unknown_domain_returns_default(self):
         result = get_next_step("totally_unknown_domain", Stage.INITIAL)
