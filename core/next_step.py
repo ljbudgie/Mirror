@@ -160,14 +160,37 @@ _STEP_MAP: dict[tuple[str, Stage], NextStep] = {
 
     # ── medical ──────────────────────────────────────────────────────────────
     ("medical", Stage.INITIAL): NextStep(
-        action="Submit a formal complaint in writing to the healthcare provider.",
+        action="Ask the healthcare provider for written reasons and a named human review of the decision.",
         detail=(
-            "Write to the Patient Experience or Complaints Team — not just your GP "
-            "or ward manager. Set out what happened, when it happened, and what you "
-            "would like them to do. They must acknowledge within three working days."
+            "If this involves hearing support, an assistive device, health data, "
+            "or clinical access, start by asking the Patient Experience or "
+            "Information Governance team to confirm who reviewed your specific "
+            "facts, what records or device data were used, and what route you can "
+            "use to challenge the decision."
         ),
-        template_key="nhs_complaint",
+        template_key="medical_device_access_request",
         stage_after=Stage.AWAITING_RESPONSE,
+    ),
+    ("medical", Stage.RESPONSE_RECEIVED): NextStep(
+        action="Challenge the decision in writing if the reasons do not show specific human review.",
+        detail=(
+            "Use the response to identify what is missing: named reviewer, records "
+            "considered, device or audiology data used, equality adjustments, and "
+            "appeal or complaints route. Ask for the decision to be reconsidered "
+            "against your specific facts."
+        ),
+        template_key="audiology_decision_challenge",
+        stage_after=Stage.AWAITING_RESPONSE,
+    ),
+    ("medical", Stage.DEADLINE_PASSED): NextStep(
+        action="Send a formal complaint about the lack of response.",
+        detail=(
+            "If the provider has not acknowledged or answered, escalate through the "
+            "local NHS complaints route. Keep the focus on the missing human review, "
+            "the records or device data used, and the impact on your access needs."
+        ),
+        template_key="assistive_technology_complaint",
+        stage_after=Stage.ESCALATED,
     ),
     ("medical", Stage.UNSATISFIED): NextStep(
         action="Refer your complaint to the Parliamentary and Health Service Ombudsman.",
@@ -178,6 +201,29 @@ _STEP_MAP: dict[tuple[str, Stage], NextStep] = {
         ),
         template_key="phso_referral",
         stage_after=Stage.ESCALATED,
+    ),
+
+    # ── cross-ecosystem support workflows ────────────────────────────────────
+    ("platform", Stage.RESPONSE_RECEIVED): NextStep(
+        action="Request the device, account, or moderation data behind the platform decision.",
+        detail=(
+            "If a platform, app, or connected-device account has restricted access, "
+            "ask for the moderation data, flags, scores, and human-review notes "
+            "used in the decision. This keeps the next step evidence-based and "
+            "local to you."
+        ),
+        template_key="device_data_access_request",
+        stage_after=Stage.AWAITING_RESPONSE,
+    ),
+    ("employment", Stage.RESPONSE_RECEIVED): NextStep(
+        action="Ask for the reasonable adjustment decision to be reviewed in writing.",
+        detail=(
+            "If your employer, school, or institution refused support connected to "
+            "disability, hearing, haptics, or assistive technology, ask for a named "
+            "human review of your specific facts and the adjustment you need."
+        ),
+        template_key="reasonable_adjustment_request",
+        stage_after=Stage.AWAITING_RESPONSE,
     ),
 
     # ── credit ───────────────────────────────────────────────────────────────

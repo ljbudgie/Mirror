@@ -214,6 +214,48 @@ _UK_RIGHTS: dict[str, list[Right]] = {
             url="https://www.nhs.uk/using-the-nhs/about-the-nhs/how-to-complain-about-nhs-services/",
         ),
         Right(
+            name="Right to Have Inaccurate Health or Device Data Corrected",
+            description=(
+                "If health records, audiology notes, or device-related data are "
+                "inaccurate, you can ask for correction or for your disagreement "
+                "to be recorded."
+            ),
+            source="UK GDPR Article 16",
+            action=(
+                "Write to the provider's Information Governance Team identifying "
+                "the inaccurate data and the correction you are asking for."
+            ),
+            url="https://ico.org.uk/your-data-matters/your-right-to-get-your-data-corrected/",
+        ),
+        Right(
+            name="Right to Challenge Solely Automated Decisions",
+            description=(
+                "Where a significant health, eligibility, or device-access decision "
+                "is made solely by automated processing, you can ask for human "
+                "intervention and an explanation."
+            ),
+            source="UK GDPR Article 22",
+            action=(
+                "Ask whether automation, scoring, triage, or device data influenced "
+                "the decision, and request meaningful human review."
+            ),
+            url="https://ico.org.uk/your-data-matters/your-right-to-object-to-automated-decision-making/",
+        ),
+        Right(
+            name="Right to Reasonable Adjustments",
+            description=(
+                "Disabled people can ask service providers, employers, and public "
+                "bodies to make reasonable adjustments so they are not placed at a "
+                "substantial disadvantage."
+            ),
+            source="Equality Act 2010",
+            action=(
+                "Ask for the adjustment you need, explain the disadvantage, and "
+                "request a written response from a named decision-maker."
+            ),
+            url="https://www.equalityhumanrights.com/equality/equality-act-2010",
+        ),
+        Right(
             name="Right to Escalate to the Parliamentary and Health Service Ombudsman",
             description=(
                 "If you are not satisfied with the NHS's response, "

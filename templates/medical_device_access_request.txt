@@ -1,0 +1,39 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+Patient Experience / Information Governance Team
+$organisation_name
+$organisation_address
+
+Dear Sir or Madam,
+
+Subject: Request for Written Reasons and Human Review of Medical Device / Health Data Decision
+
+I am writing about the decision concerning:
+
+$device_or_support
+
+What happened:
+
+$what_happened
+
+Date of decision or incident: $decision_date
+
+Please provide:
+
+1. The written reasons for the decision
+2. The name or role of the person responsible for reviewing my specific facts
+3. The health records, audiology records, device data, eligibility criteria, or
+   other information relied on
+4. Any route for review, reconsideration, or complaint
+5. Any reasonable adjustments considered in relation to my access needs
+
+Please treat this as a request for a clear written explanation and, where
+personal data is involved, a request for access to the relevant records.
+
+Yours faithfully,
+
+$your_name

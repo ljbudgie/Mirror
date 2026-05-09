@@ -1,0 +1,41 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+Audiology / Patient Experience Team
+$organisation_name
+$organisation_address
+
+Dear Sir or Madam,
+
+Subject: Challenge to Audiology or Hearing Support Decision
+
+I am writing to challenge the decision about my audiology, hearing support, or
+assistive technology access.
+
+Decision being challenged:
+
+$decision_summary
+
+Why I am asking for review:
+
+$review_reasons
+
+Impact on me:
+
+$impact_statement
+
+Please arrange a review by a human decision-maker who can consider the specific
+facts of my hearing, communication, disability, work, family, and daily-life
+needs. Please also confirm what records, device data, pathway criteria, or
+eligibility rules were used.
+
+I am asking for:
+
+$desired_outcome
+
+Yours faithfully,
+
+$your_name

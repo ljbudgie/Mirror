@@ -1,0 +1,34 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+$organisation_name
+$organisation_address
+
+Dear Sir or Madam,
+
+Subject: Limited Authority to Involve a Trusted Contact
+
+I give limited permission for the following trusted contact to support me with
+this matter:
+
+Trusted contact name: $trusted_contact_name
+Trusted contact email/phone: $trusted_contact_details
+Matter or reference: $reference_number
+
+This authority is limited to the following purpose:
+
+$limited_purpose
+
+It does not give permission for unrelated disclosure, marketing contact,
+account changes, or wider sharing of my personal data. Please continue to send
+formal decisions and copies of substantive communications to me unless I give
+separate written instructions.
+
+Please confirm that this limited authority has been recorded.
+
+Yours faithfully,
+
+$your_name

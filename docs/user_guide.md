@@ -109,7 +109,15 @@ Edit `mirror-config.json` to set your preferences:
     "screen_reader": false,
     "email_only": false
   },
-  "export_format": "txt"
+  "export_format": "txt",
+  "vault_path": null,
+  "templates_dir": null,
+  "ai": {
+    "enabled": false,
+    "model": "mistral",
+    "base_url": "http://localhost:11434",
+    "timeout": 120
+  }
 }
 ```
 
@@ -120,6 +128,16 @@ jurisdictions receive international framework guidance.
 adjusts its output format accordingly.
 
 **Export format**: `"txt"` (default) or `"pdf"` (requires additional setup).
+
+**Vault path**: set `vault_path` only if you want commitment salts stored in a
+specific local encrypted vault. Leave it as `null` to use Mirror's default.
+
+**Templates directory**: set `templates_dir` only if you want to use a local
+custom template folder.
+
+**AI**: optional local AI is disabled by default. If enabled, Mirror expects a
+local backend such as Ollama at `base_url` and falls back to deterministic
+classification if the backend is unavailable.
 
 ---
 
@@ -147,6 +165,11 @@ message originated from you at a specific time.
 Salts are stored in an encrypted local vault at `~/.mirror/vault.enc`.
 Your vault passphrase never leaves your device.
 
+Use a commitment hash when you send an important request, complaint, appeal, or
+trusted-contact authority. Keep the hash, timestamp, and local vault entry with
+your records so you can later verify what was sent without publishing the
+message itself.
+
 ---
 
 ## Timeline tracking
@@ -163,6 +186,11 @@ Mirror tracks statutory deadlines:
 
 When a deadline is approaching or missed, Mirror generates the appropriate
 follow-up or escalation letter automatically.
+
+For local evidence discipline, keep a simple export bundle for each matter:
+your situation summary, rights map, next step, chosen template, deadline, and
+commitment hash metadata. This can remain as a local text file; no account or
+server is required.
 
 ---
 

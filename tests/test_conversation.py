@@ -20,6 +20,19 @@ class TestClassify:
     def test_medical_keywords(self):
         assert classify("The hospital refused my treatment and the NHS hasn't responded") == "medical"
 
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "Audiology refused my hearing aids without explaining the decision",
+            "My cochlear implant device data was used in an eligibility decision",
+            "The haptic wristband support was refused by the clinic",
+            "They ignored my assistive technology and reasonable adjustment request",
+            "A sensory substitution device was denied without human review",
+        ],
+    )
+    def test_medical_sensory_keywords(self, text):
+        assert classify(text) == "medical"
+
     def test_credit_keywords(self):
         assert classify("There is an incorrect entry on my Experian credit file") == "credit"
 

@@ -92,7 +92,7 @@ Mirror is designed to run without accounts, servers, analytics, or tracking.
 ```text
 /core        Python modules — conversation, rights, next step, templates, commitment, timeline, AI adapter
 /prompts     System prompts for optional local AI integration
-/templates   27 ready-to-send letter templates
+/templates   33 ready-to-send letter templates
 /web         Local-first chat interface (HTML + CSS, no dependencies)
 /docs        User guide, security policy, contributing guide
 ```
@@ -108,13 +108,16 @@ Then open `web/index.html` in a browser. No server is required.
 
 ### Templates and actions
 
-Mirror includes 27 ready-to-send templates, including:
+Mirror includes 33 ready-to-send templates, including:
 
 - Subject Access Requests (DSARs)
 - Freedom of Information requests
 - Article 22 automated decision challenges
 - ICO complaints
 - NHS complaints
+- Medical-device and audiology decision challenges
+- Assistive-technology and reasonable-adjustment requests
+- Device-data access requests
 - Parliamentary and Health Service Ombudsman referrals
 - Mandatory reconsiderations
 - Tribunal appeals

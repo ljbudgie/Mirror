@@ -1,0 +1,44 @@
+$your_name
+$your_address
+$your_email
+
+$today_date
+
+Complaints Team
+$organisation_name
+$organisation_address
+
+Dear Sir or Madam,
+
+Subject: Formal Complaint About Assistive Technology Decision
+
+I am making a formal complaint about the handling of a decision involving
+assistive technology, sensory support, or related health data.
+
+What happened:
+
+$what_happened
+
+Technology or support involved:
+
+$technology_or_support
+
+This has affected me in the following way:
+
+$impact_statement
+
+I am concerned that the decision may not have involved meaningful human review
+of my specific facts, including my access needs and the practical impact on my
+daily life.
+
+I am asking for:
+
+1. A full written response
+2. Confirmation of who reviewed my specific facts
+3. A copy or summary of the records, criteria, or device data relied on
+4. A fresh review of the decision
+5. $desired_outcome
+
+Yours faithfully,
+
+$your_name

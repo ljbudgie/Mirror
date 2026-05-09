@@ -61,6 +61,13 @@ class TestMapRightsUK:
             result = map_rights(domain, "UK")
             assert len(result.rights) > 0, f"No rights found for domain: {domain}"
 
+    def test_medical_includes_device_and_accessibility_rights(self):
+        result = map_rights("medical", "UK")
+        combined = " ".join(f"{right.name} {right.source}" for right in result.rights)
+        assert "device data" in combined.lower() or "Health or Device Data" in combined
+        assert "UK GDPR Article 22" in combined
+        assert "Equality Act 2010" in combined
+
 
 class TestMapRightsInternational:
     def test_non_uk_returns_rights_map(self):

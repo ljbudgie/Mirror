@@ -25,13 +25,16 @@ useful for the people who need it most.
 
 ---
 
-## What we're not looking for (right now)
+## Guardrails
 
-- Machine learning or AI integration
+- Cloud AI, remote inference, analytics, or tracking
 - Server-side components or databases
 - User accounts or authentication
-- Analytics or telemetry
 - New dependencies without a compelling reason
+
+Optional local AI is allowed only where it preserves Mirror's local-first design:
+disabled by default, user-controlled, dependency-light, and with deterministic
+fallbacks that keep the toolkit useful without AI.
 
 Mirror must remain local-first and minimal.
 
