@@ -5,7 +5,7 @@ is stored locally in an encrypted vault so you can prove, at any time, that
 a specific message originated from you — without revealing any personal data.
 
 Cryptographic baseline: derived from the Burgess Principle methodology
-(UK00004343685), compatible with burgess-principle v0.3.0.
+(UK00004343685), compatible with burgess-principle v2.6.6.
 
 The vault is encrypted using Fernet symmetric encryption. The vault key is
 derived from a passphrase you provide — it never leaves your device.

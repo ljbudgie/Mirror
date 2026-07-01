@@ -88,14 +88,14 @@
         { name: 'Right to your deposit back', source: 'Housing Act 2004 s.213' },
       ],
       platform: [
-        { name: 'Right to explanation for automated decisions', source: 'UK GDPR Article 22' },
+        { name: 'Right to explanation for automated decisions', source: 'UK GDPR Articles 22A–22D (DUAA 2025)' },
         { name: 'Right to your data (SAR)', source: 'UK GDPR Article 15' },
         { name: 'Right to complain to the ICO', source: 'UK GDPR Article 77' },
       ],
       medical: [
         { name: 'Right to access your medical records', source: 'UK GDPR Article 15; Access to Health Records Act 1990' },
         { name: 'Right to correct inaccurate health or device data', source: 'UK GDPR Article 16' },
-        { name: 'Right to challenge solely automated decisions', source: 'UK GDPR Article 22' },
+        { name: 'Right to challenge solely automated decisions', source: 'UK GDPR Articles 22A–22D (DUAA 2025)' },
         { name: 'Right to reasonable adjustments', source: 'Equality Act 2010' },
         { name: 'Right to make a formal complaint', source: 'NHS Constitution' },
         { name: 'Right to escalate to the PHSO', source: 'Health Service Commissioners Act 1993' },
@@ -174,6 +174,55 @@
       return scores[best] === 0 ? 'consumer' : best;
     }
 
+    // ── Burgess three-outcome classifier ──────────────────────────────────
+    // Mirrors core/burgess.py: SOVEREIGN / NULL / AMBIGUOUS.
+
+    const NULL_SIGNALS = [
+      /\bautomated\b/, /\bautomatically\b/, /\bsystem[- ]?generated\b/,
+      /\bno human\b/, /\bcannot name\b/, /\bunable to name\b/,
+      /\bbulk[- ]?process/, /\balgorithm/, /\bno individual (?:human )?review\b/,
+      /\bfully automated\b/, /\bsolely automated\b/, /\bwithout human\b/,
+    ];
+    const VAGUE_SIGNALS = [
+      /\bhuman oversight\b/, /\bin line with (?:our )?policy\b/,
+      /\bhuman review layer\b/, /\bsubject to human review\b/,
+      /\bin accordance with (?:our )?(?:policy|procedures?)\b/,
+    ];
+    const NAME_STOPWORDS = new Set([
+      'Universal Credit', 'Home Office', 'Subject Access', 'Data Protection',
+      'Burgess Principle', 'Mandatory Reconsideration', 'Financial Ombudsman',
+    ]);
+
+    function hasNamedReviewer(text) {
+      if (/\b(?:Dr|Mr|Mrs|Ms|Miss|Prof|Professor)\.?\s+[A-Z][a-z]+/.test(text)) return true;
+      const re = /\b[A-Z][a-z]+\s+[A-Z][a-z]+\b/g;
+      let m;
+      while ((m = re.exec(text)) !== null) {
+        if (!NAME_STOPWORDS.has(m[0])) return true;
+      }
+      return false;
+    }
+
+    function classifyBurgess(text) {
+      const lower = (text || '').toLowerCase();
+      const named = hasNamedReviewer(text || '');
+      const facts = /\byour specific\b|\bspecific facts\b|\byour case\b|\byour circumstances\b|\byour situation\b|\bindividually\b|\bpersonally (?:reviewed|considered|handled)\b/.test(lower);
+      const timing = /\bbefore the decision\b|\bbefore this decision\b|\bprior to\b|\bbefore any (?:action|decision)\b/.test(lower);
+      const authority = /\bauthority to (?:change|overturn|amend)\b|\bchange the (?:outcome|decision)\b|\bpower to (?:change|overturn)\b|\bdiscretion to\b/.test(lower);
+      const nullSignal = NULL_SIGNALS.some(re => re.test(lower));
+      const vagueSignal = VAGUE_SIGNALS.some(re => re.test(lower));
+
+      if (nullSignal && !(named && facts)) return 'NULL';
+      if (named && facts && (timing || authority)) return 'SOVEREIGN';
+      return 'AMBIGUOUS';
+    }
+
+    const BURGESS_GUIDANCE = {
+      SOVEREIGN: 'Record this as <strong>SOVEREIGN</strong>. Keep the reviewer\'s name and role, the facts they considered, and confirmation they acted before the decision with authority to change it. If you still disagree, challenge the substance — the process is sound.',
+      NULL: 'Record this as <strong>NULL</strong> — the documented starting point for escalation, not a final verdict. Require individual human review by a named person with authority to change the outcome before any further action. Under the Data (Use and Access) Act 2025 (s.80) / UK GDPR Articles 22A–22D you have a right to representations and to contest the decision; downstream action founded on a NULL process may have no lawful basis.',
+      AMBIGUOUS: 'Record this as <strong>AMBIGUOUS</strong>. Ask the institution to confirm the reviewer\'s name, their role, the specific facts they reviewed, that this happened before the decision, and that they had authority to change it. Treat it as NULL until they confirm all of these.',
+    };
+
     // ── State ─────────────────────────────────────────────────────────────
 
     const state = {
@@ -248,6 +297,7 @@
             `<p>Here's the one thing to do next:</p>`
               + `<p class="next-step">${escapeHtml(NEXT_STEPS[domain])}</p>`
               + `<p>When you're ready to take that step, I can help you draft the communication. Just say <em>draft</em>.</p>`
+              + `<p>When a reply comes back, paste it here starting with <em>check</em> and I'll classify it under the Burgess Principle as SOVEREIGN, NULL, or AMBIGUOUS.</p>`
               + `<p>For important letters, keep a local copy, note any deadline, and generate a commitment hash with the Python toolkit so you can verify what you sent later.</p>`,
             'mirror'
           );
@@ -257,7 +307,19 @@
       } else if (state.stage === 'next_step' || state.stage === 'rights_shown') {
         const lower = userText.toLowerCase();
 
-        if (/\bdraft\b/.test(lower) || /\btemplate\b/.test(lower) || /\bwrite\b/.test(lower)) {
+        if (/^\s*check\b/.test(lower) || /\bsovereign\b|\bnull\b|\bambiguous\b/.test(lower)) {
+          const reply = userText.replace(/^\s*check\b[:\s]*/i, '');
+          const outcome = classifyBurgess(reply);
+          setTimeout(() => {
+            addMessage(
+              `<p>Applying the Burgess Principle to that response, the outcome is:</p>`
+                + `<p class="next-step">${outcome}</p>`
+                + `<p>${BURGESS_GUIDANCE[outcome]}</p>`,
+              'mirror'
+            );
+          }, 400);
+
+        } else if (/\bdraft\b/.test(lower) || /\btemplate\b/.test(lower) || /\bwrite\b/.test(lower)) {
           setTimeout(() => {
             addMessage(
               `To draft the communication, use Mirror's Python toolkit from the command line:<br><br>`

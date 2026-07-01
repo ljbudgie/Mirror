@@ -21,10 +21,15 @@ from string import Template
 
 BURGESS_QUESTION = (
     "Under your duty of candour and the Burgess Principle (UK00004343685), "
-    "I ask that you provide a complete and accurate account of all relevant "
-    "decisions, processes, and data that relate to this matter. "
-    "Please confirm in writing whether any automated decision-making was "
-    "involved, and if so, provide the logic and criteria applied."
+    "I ask one question: was a human member of your team able to personally "
+    "review the specific facts of my specific situation before this decision "
+    "was made? Please confirm the reviewer's name, their role, the specific "
+    "facts they considered, that this happened before the decision, and that "
+    "they had authority to change the outcome. Please also confirm in writing "
+    "whether any automated decision-making was involved and, if so, provide "
+    "the logic and criteria applied. This engages the meaningful human "
+    "involvement requirement in the Data (Use and Access) Act 2025 (s.80) / "
+    "UK GDPR Articles 22A–22D."
 )
 
 # ── Template directory ───────────────────────────────────────────────────────

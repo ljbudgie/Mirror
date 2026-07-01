@@ -65,7 +65,7 @@ class TestMapRightsUK:
         result = map_rights("medical", "UK")
         combined = " ".join(f"{right.name} {right.source}" for right in result.rights)
         assert "device data" in combined.lower() or "Health or Device Data" in combined
-        assert "UK GDPR Article 22" in combined
+        assert "UK GDPR Articles 22A–22D" in combined
         assert "Equality Act 2010" in combined
 
 
