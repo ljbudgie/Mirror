@@ -166,6 +166,20 @@ You can run this classification locally: in Python, use
 `core.burgess.classify_response(text)`; in the web interface, paste the reply
 starting with the word `check`.
 
+To go straight from a reply to your next action, use
+`core.advise_from_response(domain, reply)`. It classifies the reply and returns
+a single next step — SOVEREIGN moves you on to work through the substance of the
+response, while NULL and AMBIGUOUS route you to escalation:
+
+```python
+from core import advise_from_response
+
+advice = advise_from_response("benefits", "It was reviewed in line with our policy.")
+print(advice.result.outcome)   # Outcome.AMBIGUOUS
+print(advice.next_step.action) # the one thing to do next
+```
+
+
 The Burgess Principle is a registered accountability methodology
 (UK00004343685). It operationalises the *meaningful human involvement*
 requirement in the Data (Use and Access) Act 2025 (s.80) / UK GDPR Articles
