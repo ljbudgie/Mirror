@@ -194,7 +194,7 @@
     ]);
 
     function hasNamedReviewer(text) {
-      if (/\b(?:Dr|Mr|Mrs|Ms|Miss|Prof|Professor)\.?\s+[A-Z][a-z]+/.test(text)) return true;
+      if (/\b(?:Dr|Mr|Mrs|Ms|Miss|Prof|Professor)\.?\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?/.test(text)) return true;
       const re = /\b[A-Z][a-z]+\s+[A-Z][a-z]+\b/g;
       let m;
       while ((m = re.exec(text)) !== null) {
@@ -307,7 +307,7 @@
       } else if (state.stage === 'next_step' || state.stage === 'rights_shown') {
         const lower = userText.toLowerCase();
 
-        if (/^\s*check\b/.test(lower) || /\bsovereign\b|\bnull\b|\bambiguous\b/.test(lower)) {
+        if (/^\s*check\b/.test(lower)) {
           const reply = userText.replace(/^\s*check\b[:\s]*/i, '');
           const outcome = classifyBurgess(reply);
           setTimeout(() => {

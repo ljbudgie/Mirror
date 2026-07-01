@@ -138,7 +138,8 @@ _CRITERION_PATTERNS: dict[str, list[str]] = {
 
 # Titles + a following capitalised name, e.g. "Dr Sarah Chen", "Ms Patel".
 _TITLE_NAME = re.compile(
-    r"\b(?:Dr|Mr|Mrs|Ms|Miss|Prof|Professor|Sir|Dame)\.?\s+[A-Z][a-z]+"
+    r"\b(?:Dr|Mr|Mrs|Ms|Miss|Prof|Professor|Sir|Dame)\.?\s+"
+    r"[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?"
 )
 # Two consecutive capitalised words, e.g. "Sarah Chen" — a heuristic full name.
 _FULL_NAME = re.compile(r"\b[A-Z][a-z]+\s+[A-Z][a-z]+\b")
