@@ -287,6 +287,9 @@ def adaptive_burgess_question(
     burgess_prompt = (
         "You are Mirror, applying the Burgess Principle (UK00004343685). "
         f"The user's situation has been classified as '{domain}'. "
+        "The Burgess Principle asks whether a named human reviewed the "
+        "specific facts of the person's case before power was exercised, and "
+        "classifies the institution's answer as SOVEREIGN, NULL, or AMBIGUOUS. "
         "Generate exactly one pointed question that demands human "
         "accountability for the user's specific situation. "
         "The question should be calm, precise, and empowering. "

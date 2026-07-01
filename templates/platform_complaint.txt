@@ -21,7 +21,7 @@ $what_happened
 
 I believe this decision:
 - Was made without adequate notice or explanation
-- May have been made by or partly by an automated system (UK GDPR Article 22)
+- May have been made by or partly by an automated system (UK GDPR Articles 22A–22D, Data (Use and Access) Act 2025)
 - Has caused me the following harm: $harm_caused
 
 I am requesting:

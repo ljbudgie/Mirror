@@ -18,7 +18,7 @@ Data Protection Regulation (UK GDPR) and Section 45 of the Data Protection Act 2
 I request a copy of all personal data you hold about me, including but not limited to:
 
 - All records, files, notes, and correspondence relating to me
-- Any automated decision-making applied to my data (Article 22)
+- Any automated decision-making applied to my data (UK GDPR Articles 22A–22D)
 - The purposes for which my data is processed
 - The categories of data held
 - Any third parties to whom my data has been disclosed

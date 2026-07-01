@@ -11,6 +11,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
 
+from core.burgess import BurgessResult, Outcome, classify_response
+
 
 class Stage(str, Enum):
     """Where the user currently is in the process."""
@@ -359,3 +361,67 @@ def get_next_step(domain: str, stage: Stage = Stage.INITIAL) -> NextStep:
         A single :class:`NextStep` — never a list, never a menu.
     """
     return _STEP_MAP.get((domain, stage), _DEFAULT_STEP)
+
+
+# ── The Burgess bridge ───────────────────────────────────────────────────────
+#
+# core/burgess.py classifies an institution's reply as SOVEREIGN / NULL /
+# AMBIGUOUS. This bridge turns that judgement into the single next action, so
+# the Python toolkit can run the same "paste the reply, get the next step" loop
+# that the local web interface offers.
+
+
+def outcome_to_stage(outcome: Outcome) -> Stage:
+    """Map a Burgess outcome to where the user now stands in the process.
+
+    - SOVEREIGN: a named human reviewed the specific facts, so the process is
+      sound. The user has a substantive response to work through
+      (:attr:`Stage.RESPONSE_RECEIVED`).
+    - NULL: no meaningful human review took place, so the response is not
+      acceptable and the user should escalate (:attr:`Stage.UNSATISFIED`).
+    - AMBIGUOUS: treated as NULL until the institution can confirm meaningful
+      human review, so it also maps to :attr:`Stage.UNSATISFIED`.
+
+    Args:
+        outcome: A :class:`core.burgess.Outcome`.
+
+    Returns:
+        The :class:`Stage` implied by the outcome.
+    """
+    if outcome is Outcome.SOVEREIGN:
+        return Stage.RESPONSE_RECEIVED
+    return Stage.UNSATISFIED
+
+
+@dataclass
+class ResponseAdvice:
+    """The full loop: what the reply means, and the one thing to do next."""
+
+    result: BurgessResult   # The Burgess classification of the reply
+    stage: Stage            # Where the outcome places the user
+    next_step: NextStep     # The single next action for that domain and stage
+
+
+def advise_from_response(domain: str, response_text: str) -> ResponseAdvice:
+    """Classify an institution's reply and return the single next step.
+
+    This is the toolkit-side counterpart to the web interface's ``check``
+    command: give it the domain and the institution's reply in its own words,
+    and it applies the Burgess Principle and hands back exactly one next action.
+
+    Args:
+        domain:        One of the DOMAINS from conversation.py.
+        response_text: The institution's reply, in its own words.
+
+    Returns:
+        A :class:`ResponseAdvice` carrying the Burgess result, the implied
+        stage, and the single :class:`NextStep`.
+    """
+    result = classify_response(response_text)
+    stage = outcome_to_stage(result.outcome)
+    return ResponseAdvice(
+        result=result,
+        stage=stage,
+        next_step=get_next_step(domain, stage),
+    )
+

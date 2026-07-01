@@ -159,12 +159,18 @@ _UK_RIGHTS: dict[str, list[Right]] = {
             name="Right to Explanation for Automated Decisions",
             description=(
                 "If a platform has made a significant automated decision about "
-                "your account, you have the right to a meaningful explanation."
+                "your account, you have the right to meaningful human "
+                "involvement and a meaningful explanation. The Burgess "
+                "Principle test applies: SOVEREIGN, NULL, or AMBIGUOUS."
             ),
-            source="UK GDPR Article 22",
+            source=(
+                "UK GDPR Articles 22A–22D (Data (Use and Access) Act 2025, "
+                "s.80)"
+            ),
             action=(
-                "Write to the platform requesting the reasons for the decision "
-                "and whether it was made by an automated system."
+                "Write to the platform requesting the reasons for the decision, "
+                "whether it was made by an automated system, and the name and "
+                "role of any human who reviewed your specific facts."
             ),
             url="https://ico.org.uk/your-data-matters/your-right-to-object-to-automated-decision-making/",
         ),
@@ -231,13 +237,18 @@ _UK_RIGHTS: dict[str, list[Right]] = {
             name="Right to Challenge Solely Automated Decisions",
             description=(
                 "Where a significant health, eligibility, or device-access decision "
-                "is made solely by automated processing, you can ask for human "
-                "intervention and an explanation."
+                "is made without meaningful human involvement, you can require "
+                "individual human review and an explanation. Apply the Burgess "
+                "Principle test: SOVEREIGN, NULL, or AMBIGUOUS."
             ),
-            source="UK GDPR Article 22",
+            source=(
+                "UK GDPR Articles 22A–22D (Data (Use and Access) Act 2025, "
+                "s.80)"
+            ),
             action=(
                 "Ask whether automation, scoring, triage, or device data influenced "
-                "the decision, and request meaningful human review."
+                "the decision, and require a named human reviewer, with authority "
+                "to change the outcome, to review your specific facts."
             ),
             url="https://ico.org.uk/your-data-matters/your-right-to-object-to-automated-decision-making/",
         ),
